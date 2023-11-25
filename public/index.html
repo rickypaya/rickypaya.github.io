@@ -7,30 +7,22 @@
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-white">
+<body class="text-white bg-gray-700">
 
-  <header>
+  <header class="fixed top-0 w-full bg-gray-700 mt-3">
     <div class="flex justify-between items-center max-w-6xl h-20 mx-auto">
-
       <a href="#home" class="flex items-center">
-        <!-- <img src="assets/" alt="logo" class="w-10 h-12"/> -->
-        <p class="text-2xl font-bold">Ricky Payares</p>
+        <img src="assets/Logo.png" alt="logo" class="h-20"/>
+        <p class="text-2xl font-bold text-black">ng<span class="text-green-600">enious</span></p>
       </a>
-
-      <div class="flex items-center gap-10">
-        <a href="#home" class="text-xl font-semibold hover:text-indigo-600">Home</a>
-        <a href="" class="text-xl font-semibold hover:text-indigo-600">Education</a>
-        <a href="" class="text-xl font-semibold hover:text-indigo-600">FSE</a>
-        <a href="" class="text-xl font-semibold hover:text-indigo-600">CSE</a>
-        <a href="" class="text-xl font-semibold hover:text-indigo-600">Contact</a>
-
+      <div class="flex items-stretch gap-10">
+        <a href="#home" class="text-xl font-semibold hover:text-green-600">Home</a>
+        <a href="#about" class="text-xl font-semibold hover:text-green-600">About</a>
+        <a href="#projects" class="text-xl font-semibold hover:text-green-600">Projects</a>
       </div>
-
-
-      <a href=" ">
-        <button class="bg-indigo-600 px-5 py-1 rounded text-xl font-semibold hover:ring-2">Join</button>
+      <a href="">
+        <button class="bg-green-600 px-5 py-1 rounded text-xl font-semibold hover:ring-2">Contact</button>
       </a>
-
     </div>
   </header>
 
@@ -38,28 +30,30 @@
     <div class="max-w-6xl  mx-auto">
       <section id="home" class="bg-[url('./assets/')] bg-contain bg-right bg-norepeat mt-20">
         <div class="pt-44 pb-36">
-          <h1 class="text-5xl font-bold">Hi,</h1>
-          <h1 class="text-5xl font-bold mt-4">I'm <span class="text-indigo-600">Ricky</span></h1>
+          <h1 class="text-5xl font-bold mt-4">This is <span class="text-green-600">Engenious</span>:</h1>
           <h1 class="text-5xl font-bold mt-4">Full Stack & Creative</h1>
-          <h1 class="text-5xl font-bold mt-4">Software Engineer</h1>
-          <a href="">
-            <button clas="bg-indigo-400 px-4 py-3 rounded text-2xl font-semibold hover:ring-2 shaow-xl">Let's Connect</button>
-          </a>
+          <h1 class="text-5xl font-bold mt-4">Equitable Engineering</h1>
         </div>
-
-
       </section>
-      <section>
 
-
+      <section id="about">
+        <div class="flex gap-48 py-24">
+          <img src="assets/profile.jpg" alt="Ricky Payares" class="h-96 rounded-3xl">
+          <div>
+            <p class="mt-10 text-4xl fond-bold">About Ricky Payares</p>
+          </div>
+        </div>
       </section>
-      <section>
+
+      <section id="proejcts">
+        <div class="grid grid-cols-6 gap-8 mt-10">
+
+          <div class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
 
 
-      </section>
-      <section>
-
-
+        </div>
       </section>
     </div>
 
