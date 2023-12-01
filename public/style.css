@@ -655,6 +655,11 @@ body {
   margin-bottom: auto;
 }
 
+.my-64 {
+  margin-top: 16rem;
+  margin-bottom: 16rem;
+}
+
 .ml-10 {
   margin-left: 2.5rem;
 }
@@ -721,6 +726,14 @@ body {
 
 .mt-64 {
   margin-top: 16rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
+.mt-32 {
+  margin-top: 8rem;
 }
 
 .flex {
@@ -794,6 +807,22 @@ body {
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-clip {
+  overflow: clip;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 
 .rounded {
