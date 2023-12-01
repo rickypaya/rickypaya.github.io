@@ -7,13 +7,13 @@
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-white bg-gray-700">
+<body class="text-card-bg bg-gray-700">
 
-  <header class="fixed top-0 w-full bg-gray-700 mt-3">
-    <div class="flex justify-between items-center max-w-6xl h-20 mx-auto">
+  <header class="fixed top-0 w-full bg-gray-700 z-10">
+    <div class="flex justify-between items-center max-w-6xl h-20 mx-auto my-3">
       <a href="#home" class="flex items-center">
         <img src="assets/Logo.png" alt="logo" class="h-20"/>
-        <p class="text-2xl font-bold text-black">ng<span class="text-green-600">enious</span></p>
+        <p class="text-2xl font-bold text-dark-black">ng<span class="text-green-600">enious</span></p>
       </a>
       <div class="flex items-stretch gap-10">
         <a href="#home" class="text-xl font-semibold hover:text-green-600">Home</a>
@@ -21,42 +21,86 @@
         <a href="#projects" class="text-xl font-semibold hover:text-green-600">Projects</a>
       </div>
       <a href="">
-        <button class="bg-green-600 px-5 py-1 rounded text-xl font-semibold hover:ring-2">Contact</button>
+        <button class="bg-green-600 px-5 py-1 rounded text-xl font-semibold hover:ring-2 mr-3">Contact</button>
       </a>
     </div>
   </header>
 
   <main>
     <div class="max-w-6xl  mx-auto">
+
       <section id="home" class="bg-[url('./assets/')] bg-contain bg-right bg-norepeat mt-20">
-        <div class="pt-44 pb-36">
-          <h1 class="text-5xl font-bold mt-4">This is <span class="text-green-600">Engenious</span>:</h1>
-          <h1 class="text-5xl font-bold mt-4">Full Stack & Creative</h1>
-          <h1 class="text-5xl font-bold mt-4">Equitable Engineering</h1>
+        <div class="py-44 ml-10">
+          <h1 class="text-5xl font-bold mt-4">Welcome to <span class="text-dark-black">Eng</span><span class="text-green-600">enious</span>:</h1>
+          <h1 class="text-5xl font-bold mt-4">Free Form Engineering</h1>
+          <h1 class="text-4xl font-semibold mt-4">for creative-technical art & installations</h1>
         </div>
       </section>
 
       <section id="about">
-        <div class="flex gap-48 py-24">
-          <img src="assets/profile.jpg" alt="Ricky Payares" class="h-96 rounded-3xl">
-          <div>
-            <p class="mt-10 text-4xl fond-bold">About Ricky Payares</p>
+        <div class="h-screen mt-64">
+          <div id="gradient" class="absolute bg-grad-bg h-48 w-full mt-20 mx-0 my-auto left-0 z-1"></div>
+          <div id="card-wrapper" class="relative w-8/12 h-auto mx-auto shadow-card-shadow rounded-lg items-center">
+            <div id="card" class="w-full h-auto items-center bg-card-bg flex p-8 z-2 mx-auto rounded-lg">
+              <img src="assets/profile.jpg" class="h-56 w-auto mr-8 rounded-full drop-shadow-lg">
+              <div>
+                <h2 class="mx-0 my-auto p-0 text-2xl text-black font-bold">Hi, I'm Ricky Payares</h2>
+                <p class="text-lg text-gray-800">Engineer, Philosopher & Creative</p>
+                <p class="text-base text-gray-800">The goal of this website is to present a portfolio of the past and current technical art I make. I am interested in all kinds of technical art including but certainly not limited to programmatic and algorithmic computational art, audio & visual synthesis, animation, projection mapping, computer vision, and neural networks & training models.</p>
+                <h3 class="text-xl text-black mt-5 font-semibold">Education</h3>
+                <p class="text-lg text-purple-600">New York University College of Arts & Sciences ('22)</p>
+                <p class="text-base text-gray-800">B.A. in Computer Science</p>
+                <p class="text-sm text-gray-800">Minors in Mathematics & Philosophy</p>
+                <p class="text-lg text-red-600 mt-3">Fullstack Academy ('22)</p>
+                <p class="text-base text-gray-800">Software Engineering Immersive</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="proejcts">
-        <div class="grid grid-cols-6 gap-8 mt-10">
+      <section id="projects">
+        <h2 class="text-6xl text-card-bg font-semibold text-center">Works</h2>
+        <div id="container" class="my-2 justify-between w-fit mx-auto">
 
-          <div class="">
+          <div id="item" class="">
             <img src="assets/project-card.jpg" alt="" class="">
           </div>
 
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
 
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
+
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
+
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
+
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
+
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
+
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
+
+          <div id="item" class="">
+            <img src="assets/project-card.jpg" alt="" class="">
+          </div>
         </div>
       </section>
     </div>
-
 
   </main>
 
