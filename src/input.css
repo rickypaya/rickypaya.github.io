@@ -15,28 +15,15 @@
   }
 
   #projects #container {
-    display: flex;
     flex-flow: column wrap;
-    height: 1800px;
+    height: 2500px;
   }
 
   #projects #container #item {
     flex: 1 1 auto;
-    margin: 60px 35px;
   }
 
-
-  #projects #container #item:nth-child(4) {
-    margin-top: 200px;
-    margin-bottom: 100px;
-  }
-  #projects #container #item:nth-child(5) {
-    margin-top: 100px;
-    margin-bottom: 200px;
-  }
-
-  #projects #container #item img {
-    height: 300px;
-    width: auto;
+  #projects #container #item h2,p {
+    font-family: 'Courier New', Courier, monospace;
   }
 }
