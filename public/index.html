@@ -11,7 +11,7 @@
 <body class="text-card-bg bg-gray-700 scroll-smooth">
   <!-- NAVBAR -->
   <header class="fixed top-0 w-full bg-gray-700 z-10">
-    <div class="flex justify-between items-center max-w-6xl h-10 mx-auto my-3">
+    <div class="flex justify-between items-center max-w-6xl h-5 md:h-10 mx-auto my-3">
       <a href="#home" class="flex items-center">
         <img src="assets/Logo.png" alt="logo" class="h-8 md:h-14 ml-2"/>
         </a>
@@ -29,46 +29,49 @@
   <main>
     <div class="mx-auto">
       <!-- HERO SECTION -->
-      <section id="home" class="bg-[url('./assets/')] bg-contain bg-right bg-norepeat mt-20">
-        <div class="py-44 ml-10">
-          <h1 class="sm:text-xl md:text-5xl font-bold mt-4">This is
-            <span class="inline-block">
-              <img src="assets/Logo.png" alt="logo" class="h-10 md:h-20 w-atuo absolute -ml-0 md:-ml-0 -mt-6 md:-mt-14"/>
-            </span>
-            <span class="text-dark-black ml-10 md:ml-20">
-              ng
-            </span>
-            <span class="text-green-600 -ml-1 md:-ml-3 -mr-1 md:-mr-2">
-              enious
-            </span>:
-          </h1>
-          <h1 class="sm:text-xl md:text-5xl font-bold mt-4">Expressive Engineering</h1>
-          <h1 class="sm:text-lg md:text-4xl font-semibold mt-4">for technical art & creative software</h1>
+      <section id="home" class="mt-20">
+        <div class="py-44 mx-10 text-slate-800">
+          <div class="bg-card-bg bg-opacity-80 w-1/2 -mt-7 -ml-4 mr-56 p-3 rounded-3xl">
+            <h1 class="text-md md:text-4xl font-bold mt-2">
+              <span class="inline-block">
+                <img src="assets/Logo.png" alt="logo" class="h-10 md:h-20 w-atuo absolute -ml-0 md:-ml-0 -mt-6 md:-mt-12"/>
+              </span>
+              <span class="text-dark-black ml-10 md:ml-20">
+                ng
+              </span>
+              <span class="text-green-600 -ml-1 md:-ml-2 -mr-1 md:-mr-2">
+                enious
+              </span>:
+            </h1>
+            <h1 class="text-md md:text-4xl font-bold mt-4">Expressive Engineering</h1>
+            <h1 class="text-sm md:text-3xl font-semibold">for technical art & creative software</h1>
+          </div>
         </div>
+        <img src="assets/Hero-image.png" class="absolute w-screen md:w-10/12 lg:w-8/12 md:left-1/4 h-auto -z-10 top-52 md:top-28 rounded-tl-3xl md:rounded-bl-3xl lg:rounded-3xl">
       </section>
 
       <!-- ABOUT SECTION -->
-      <section id="about" class="mb-10">
+      <section id="about" class="">
         <div class="h-auto my-64">
-          <div id="gradient" class="absolute bg-grad-bg h-56 w-full mt-40 mx-0 my-auto left-0 z-1"></div>
+          <div id="gradient" class="absolute bg-grad-bg h-96 md:h-56 w-full mt-40 mx-0 my-auto left-0 z-1"></div>
           <div id="card-wrapper" class="relative w-10/12 h-auto mx-auto  shadow-card-shadow rounded-lg items-center">
-            <div id="card" class="w-full h-auto items-center bg-card-bg flex py-8 px-16 z-2 mx-auto rounded-lg min-w-fit">
-              <img src="assets/profile.jpg" class="h-auto w-1/3 mr-11 rounded-xl drop-shadow-lg">
+            <div id="card" class="w-full h-auto items-center bg-card-bg md:flex py-8 px-16 z-2 mx-auto rounded-lg min-w-fit">
+              <img src="assets/profile.jpg" class="h-auto mx-auto sm:w-1/2 md:w-1/3 md:mr-11 rounded-xl drop-shadow-lg">
               <div class="py-3">
-                <h2 class="mx-0 my-auto p-0 text-2xl text-black font-bold text-center mt-2">Ricky Payares</h2>
-                <p class="text-base text-gray-800 mb-2 text-center">Engineer, Philosopher, Creative</p>
+                <h2 class="mx-0 my-auto p-0 text-lg md:text-2xl text-black font-bold text-center mt-2">Ricky Payares</h2>
+                <p class="text-sm md:text-base text-gray-800 mb-2 text-center">Engineer, Philosopher, Creative</p>
                 <p class="text-sm text-gray-800 mb-5">The goal of this website is to present a portfolio of the peices I produce as I explore concepts in creative development and technical art production. Here's a bit more about me:</p>
-                <h3 class="text-xl text-black mt-5 font-semibold">Education</h3>
-                <p class="text-lg text-purple-600 ml-5 mt-2">New York University College of Arts & Sciences ('22)</p>
-                <p class="text-base text-gray-800 ml-10">B.A. in Computer Science</p>
+                <h3 class="text-md md:text-xl text-black mt-5 font-semibold">Education</h3>
+                <p class="text-sm md:text-lg text-purple-600 ml-5 mt-2">New York University College of Arts & Sciences ('22)</p>
+                <p class="text-sm md:text-base text-gray-800 ml-10">B.A. in Computer Science</p>
                 <p class="text-sm text-gray-800 ml-10">Minors in Mathematics & Philosophy</p>
-                <p class="text-lg text-red-600 mt-1 ml-5">Fullstack Academy ('22)</p>
-                <p class="text-base text-gray-800 ml-10">Software Engineering Immersive</p>
-                <h3 class="text-xl text-black mt-5 font-semibold">Experience</h3>
-                <p class="text-lg text-blue-500 ml-5 mt-2">Bloomberg LP</p>
-                <p class="text-base text-gray-800 ml-10">Software Engineer (June 2022 - Present)</p>
+                <p class="text-sm md:text-lg text-red-600 mt-1 ml-5">Fullstack Academy ('22)</p>
+                <p class="text-sm md:text-base text-gray-800 ml-10">Software Engineering Immersive</p>
+                <h3 class="text-md md:text-xl text-black mt-5 font-semibold">Experience</h3>
+                <p class="text-sm md:text-lg text-blue-500 ml-5 mt-2">Bloomberg LP</p>
+                <p class="text-sm md:text-base text-gray-800 ml-10">Software Engineer (June 2022 - Present)</p>
                 <p class="text-sm text-gray-800 ml-10">Electronic Market Making Workflows (ETMM)</p>
-                <h4 class="text-xl text-black mt-5 font-semibold">Interests</h4>
+                <h4 class="text-md md:text-xl text-black mt-5 font-semibold">Interests</h4>
                 <p class="text-sm text-gray-800 ml-5 mt-2 text-center"> Interaction design, communication design, programmatic & algorithmic computational art, audio/visual synthesis, projection mapping, computer vision, and neural networks & training models.</p>
                 <p class="text-sm text-gray-800 ml-5 mt-2 text-center">Music, visual art, photography, print, and clothing.</p>
               </div>
