@@ -16,15 +16,16 @@
 
   #projects #container {
     flex-flow: column wrap;
-    height: 2500px;
+    height: 1000px;
   }
 
   #projects #container #item {
     flex: 1 1 auto;
   }
 
-  #projects #container #item h2, #projects #container #item p {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  #projects #container #item h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: x-large;
   }
 
   #details h2, #details p {

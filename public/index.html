@@ -11,15 +11,14 @@
 <body class="text-card-bg bg-gray-700 scroll-smooth">
 
   <header class="fixed top-0 w-full bg-gray-700 z-10">
-    <div class="flex justify-between items-center max-w-6xl h-20 mx-auto my-3">
+    <div class="flex justify-between items-center max-w-6xl h-10 mx-auto my-3">
       <a href="#home" class="flex items-center">
-        <img src="assets/Logo.png" alt="logo" class="h-20"/>
-        <p class="text-2xl font-bold text-dark-black">ng<span class="text-green-600">enious</span></p>
-      </a>
+        <img src="assets/Logo.png" alt="logo" class="h-14"/>
+        </a>
       <div class="flex items-stretch gap-10">
         <a href="#home" class="text-xl font-semibold hover:text-green-600">Home</a>
         <a href="#about" class="text-xl font-semibold hover:text-green-600">About</a>
-        <a href="#projects" class="text-xl font-semibold hover:text-green-600">Projects</a>
+        <a href="#Gallery" class="text-xl font-semibold hover:text-green-600">Projects</a>
       </div>
       <a href="">
         <button class="bg-green-600 px-5 py-1 rounded text-xl font-semibold hover:ring-2 mr-3">Contact</button>
@@ -32,8 +31,18 @@
 
       <section id="home" class="bg-[url('./assets/')] bg-contain bg-right bg-norepeat mt-20">
         <div class="py-44 ml-10">
-          <h1 class="text-5xl font-bold mt-4">This is <span class="text-dark-black">Eng</span><span class="text-green-600">enious</span>:</h1>
-          <h1 class="text-5xl font-bold mt-4">Free Form Engineering</h1>
+          <h1 class="text-5xl font-bold mt-4">This is
+            <span class="inline-block">
+              <img src="assets/Logo.png" alt="logo" class="h-20 absolute -ml-0 -mt-14"/>
+            </span>
+            <span class="text-dark-black ml-20">
+              ng
+            </span>
+            <span class="text-green-600 -ml-3 -mr-2">
+              enious
+            </span>:
+          </h1>
+          <h1 class="text-5xl font-bold mt-4">Expressive Engineering</h1>
           <h1 class="text-4xl font-semibold mt-4">for technical art & creative software</h1>
         </div>
       </section>
@@ -45,18 +54,22 @@
             <div id="card" class="w-full h-auto items-center bg-card-bg flex py-8 px-16 z-2 mx-auto rounded-lg min-w-fit">
               <img src="assets/profile.jpg" class="h-auto w-1/3 mr-11 rounded-xl drop-shadow-lg">
               <div class="py-3">
-                <h2 class="mx-0 my-auto p-0 text-2xl text-black font-bold">Ricky Payares</h2>
-                <p class="text-base text-gray-800 mb-4">Engineer, Philosopher & Creative</p>
-                <p class="text-sm text-gray-800 mb-5">The goal of this website is to present a portfolio of the past and current technical art I make. I am interested in all kinds of technical art and creative development including but certainly not limited to programmatic and algorithmic computational art, audio & visual synthesis, projection mapping, computer vision, and neural networks & training models. Here's a bit more about me:</p>
+                <h2 class="mx-0 my-auto p-0 text-2xl text-black font-bold text-center mt-2">Ricky Payares</h2>
+                <p class="text-base text-gray-800 mb-2 text-center">Engineer, Philosopher, Creative</p>
+                <p class="text-sm text-gray-800 mb-5">The goal of this website is to present a portfolio of the peices I produce as I explore concepts in creative development and technical art production. Here's a bit more about me:</p>
                 <h3 class="text-xl text-black mt-5 font-semibold">Education</h3>
-                <p class="text-lg text-purple-600">New York University College of Arts & Sciences ('22)</p>
-                <p class="text-base text-gray-800">B.A. in Computer Science</p>
-                <p class="text-sm text-gray-800">Minors in Mathematics & Philosophy</p>
-                <p class="text-lg text-red-600 mt-3">Fullstack Academy ('22)</p>
-                <p class="text-base text-gray-800">Software Engineering Immersive</p>
+                <p class="text-lg text-purple-600 ml-5 mt-2">New York University College of Arts & Sciences ('22)</p>
+                <p class="text-base text-gray-800 ml-10">B.A. in Computer Science</p>
+                <p class="text-sm text-gray-800 ml-10">Minors in Mathematics & Philosophy</p>
+                <p class="text-lg text-red-600 mt-1 ml-5">Fullstack Academy ('22)</p>
+                <p class="text-base text-gray-800 ml-10">Software Engineering Immersive</p>
                 <h3 class="text-xl text-black mt-5 font-semibold">Experience</h3>
-                <p class="text-lg text-blue-500">Bloomberg LP</p>
-                <p class="text-base text-gray-800">Software Engineer (June 2022 - Present)</p>
+                <p class="text-lg text-blue-500 ml-5 mt-2">Bloomberg LP</p>
+                <p class="text-base text-gray-800 ml-10">Software Engineer (June 2022 - Present)</p>
+                <p class="text-sm text-gray-800 ml-10">Electronic Market Making Workflows (ETMM)</p>
+                <h4 class="text-xl text-black mt-5 font-semibold">Interests</h4>
+                <p class="text-sm text-gray-800 ml-5 mt-2 text-center"> Interaction design, communication design, programmatic & algorithmic computational art, audio/visual synthesis, projection mapping, computer vision, and neural networks & training models.</p>
+                <p class="text-sm text-gray-800 ml-5 mt-2 text-center">Music, visual art, photography, print, and clothing.</p>
               </div>
             </div>
           </div>
@@ -64,70 +77,70 @@
       </section>
 
       <section id="projects">
-        <h2 class="text-6xl text-card-bg font-semibold text-center">Works</h2>
-        <div id="container" class="my-2 justify-between flex align-center mx-auto items-center">
+        <h2 id="Gallery" class="text-6xl text-card-bg font-semibold text-center">Works</h2>
+        <div id="container" class="my-2 justify-between flex align-center mx-auto items-center w-8/12">
 
-          <div id="item" class="w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class="w-1/3 mx-6 my-12 h-1/6 hover:text-orange-700">
             <a href="#SpeakSign" class="hover:cursor-pointer">
-              <img src="assets/SpeakSign-img.jpg" alt="" class="h-5/6 w-full">
+              <img src="assets/SpeakSign-img.jpg" alt="" class="h-5/6 w-auto">
               <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <p>ASL Interpreter using Computer Vision & color detection</p>
             </a>
           </div>
-         <div id="item" class="w-1/4 mx-6 my-24 h-1/5">
+         <div id="item" class="w-1/3 mx-6 my-12 h-1/6">
             <a href="#BendWell" class="hover:cursor-pointer">
-              <img src="assets/Bengwell-img.jpg" alt="" class="h-5/6 w-full">
+              <img src="assets/Bengwell-img.jpg" alt="" class="h-5/6 w-auto">
               <h2>BendWell</h2>
-              <p>Tensorflow & Teachable Machine</p>
+              <p>Wellness application using Tensorflow & Teachable Machine</p>
             </a>
           </div>
-          <div id="item" class="invisible w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
             <a href="" class="hover:cursor-pointer">
-              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-full">
-              <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-auto">
+              <h2>Project 3</h2>
+              <p class="w-3/4">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class="invisible w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
             <a href="" class="hover:cursor-pointer">
-              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-full">
-              <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-auto">
+              <h2>Project 4</h2>
+              <p class="w-3/4">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class="invisible w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
             <a href="" class="hover:cursor-pointer">
-              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-full">
-              <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-auto">
+              <h2>Project 5</h2>
+              <p class="w-3/4">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class="invisible w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
             <a href="" class="hover:cursor-pointer">
-              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-full">
-              <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-auto">
+              <h2>Project 6</h2>
+              <p class="w-3/4">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class="invisible w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
             <a href="" class="hover:cursor-pointer">
-              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-full">
-              <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-auto">
+              <h2>Project 7</h2>
+              <p class="w-3/4">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class="invisible w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
             <a href="" class="hover:cursor-pointer">
-              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-full">
-              <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-auto">
+              <h2>Project 8</h2>
+              <p class="w-3/4">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class="invisible w-1/4 mx-6 my-24 h-1/5">
+          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
             <a href="" class="hover:cursor-pointer">
-              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-full">
-              <h2>SpeakSign</h2>
-              <p>Computer Vision & Color Detection</p>
+              <img src="assets/project-card.jpg" alt="" class="h-5/6 w-auto">
+              <h2>Project 9</h2>
+              <p class="w-3/4">Sample project description for testing text length.</p>
             </a>
           </div>
         </div>
@@ -135,28 +148,40 @@
 
       <section id="details" class="mt-96">
 
-        <div id="SpeakSign" class="my-10">
-          <div id="container" class="flex bg-card-bg align-center">
-            <img src="assets/SpeakSign Logo.png" class="mx-5 h-96 w-auto my-auto"/>
-            <div class="mt-10 mb-5 mx-14">
-              <h2 class="mt-10 text-4xl">SpeakSign</h2>
-              <p class="mt-5 text-base">This is the artistic piece about blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah</p>
-              <p class="text-base mt-5">And this is the technical piece  blah blah blah blah blah blah  blah blah blah blah blah blah blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah</p>
-              <img src="assets/Authors-speaksign.png" class="items-center h-88 w-full"/>
+        <div id="SpeakSign" class="my-10 bg-card-bg">
+          <div id="top" class="flex  align-center -mb-10">
+            <img src="assets/SpeakSign Logo.png" class="ml-20 mt-36 h-88 w-auto my-auto"/>
+            <div class="mt-10 mx-14">
+              <h2 class="mt-10 text-4xl text-center">SpeakSign</h2>
+              <p class="mt-5 text-base indent-5">During my freshman year at NYU, I spearheaded a semester-long project focused on addressing the challenge of creating a real-time visual sign language interpreter. The primary objective was to devise an innovative solution to a prevalent issue and develop a prototype product or software to address it. Our team approached the problem by employing computer vision techniques and crafting a prototype involving a golfing glove adorned with colored stickers on the fingers, complemented by a 3D-printed controller.</p>
+              <p class="text-base mt-5 indent-5">To realize our vision, we implemented the project using Python and harnessed the capabilities of a computer vision library. The software was designed to initially identify specific colors, then track their positions in three-dimensional space, and finally calculate the relative distances between colors to define hand positions for sign language gestures. The minimum viable product (MVP) we achieved encompassed defining static signs in the alphabet, including essential phrases such as "I love you." To gain insights into our project's intricacies, you can view the team's presentation [here](insert link). All rights owned by NYU Tandon School of Engineering.</p>
+            </div>
+          </div>
+          <div id="bottom" class="flex justify-evenly align-center items-center pb-10">
+            <div id="left">
+              <h2 class="text-2xl mt-24 -mb-16 indent-52">Authors: </h2>
+              <img src="assets/Authors-speaksign.png" class="h-80 w-auto"/>
+            </div>
+            <div id="right" clas="">
+              <h2 class="text-2xl mt-24 indent-44">Demo:</h2>
+              <video class="h-60 w-auto" controls>
+                <source src="assets/SpeakSign-Demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
 
-        <div id="BendWell" class="my-10">
-          <div id="container" class="flex bg-card-bg align-center">
+        <div id="BendWell" class="p-10 bg-card-bg">
+          <div id="container" class="flex align-center items-center mt-10">
             <div class="mt-10 mb-5 mx-14">
               <h2 class="mt-10 text-4xl">BendWell</h2>
               <p class="mt-5 text-base">This is the artistic piece about blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah</p>
               <p class="text-base mt-5">And this is the technical piece  blah blah blah blah blah blah  blah blah blah blah blah blah blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah</p>
-              <img src="assets/Authors-bendwell.png" class="items-center h-88 w-full"/>
             </div>
-            <img src="assets/BendWell-img.png" class="mx-5 h-96 w-auto my-auto rounded-lg"/>
+            <img src="assets/BendWell-img.png" class="mx-5 h-80 w-auto my-auto rounded-lg"/>
           </div>
+          <img src="assets/Authors-bendwell.png" class="mx-auto h-80 w-auto"/>
         </div>
 
 
