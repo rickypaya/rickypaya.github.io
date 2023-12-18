@@ -10,8 +10,9 @@
     background-image: linear-gradient(#DAB046 20%, #D73B25 20%, #D73B25 40%, #C71B25 40%, #C71B25 60%, #961A39 60%, #961A39 80%, #601035 80%);
   }
 
-  #about #card h2, #about #card h3, #about #card p {
+  #resume h2, #resume h3, #resume p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    
   }
 
   #projects #container {
