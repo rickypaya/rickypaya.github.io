@@ -17,7 +17,7 @@ module.exports = {
       'glmd': '1000px',
       'gllg': '1100px',
       'gradh': '300px',
-      'icon-mini': '24px',
+      'icon-mini': '20px',
       'icon-normal': '40px',
       'hero-main': '80px',
     }
