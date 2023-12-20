@@ -16,7 +16,10 @@ module.exports = {
       'glsm':  '800px',
       'glmd': '1000px',
       'gllg': '1100px',
-      'gradh': '300px'
+      'gradh': '300px',
+      'icon-mini': '24px',
+      'icon-normal': '40px',
+      'hero-main': '80px',
     }
   },
   plugins: [],
