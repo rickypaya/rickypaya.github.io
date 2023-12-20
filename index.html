@@ -11,9 +11,9 @@
 <body class="text-card-bg bg-gray-700 scroll-smooth">
   <!-- NAVBAR -->
   <header class="fixed top-0 w-full bg-gray-700 z-10">
-    <div class="flex justify-between items-center max-w-6xl h-5 md:h-10 mx-auto my-3">
+    <div class="flex justify-between items-center max-w-6xl mx-auto my-3">
       <a href="#home" class="flex items-center">
-        <img src="public/assets/Logo.png" alt="logo" class="h-8 md:h-14 ml-2"/>
+        <img src="public/assets/Logo.png" alt="logo" class="max-h-6 md:max-h-10 ml-2"/>
         </a>
       <div class="flex items-stretch gap-5 md:gap-10">
         <a href="#home" class="text-sm md:text-lg font-semibold hover:text-green-600">Home</a>
@@ -31,10 +31,10 @@
       <!-- HERO SECTION -->
       <section id="home" class="mt-20">
         <div class="py-44 mx-10 text-slate-800">
-          <div class="bg-card-bg bg-opacity-80 w-1/2 -mt-7 -ml-4 mr-56 p-3 rounded-3xl">
+          <div class="bg-card-bg bg-opacity-80 w-10/12 md:w-1/2 -mt-7 -ml-4 mr-56 p-3 rounded-3xl">
             <h1 class="text-md md:text-4xl font-bold mt-2">
               <span class="inline-block">
-                <img src="public/assets/Logo.png" alt="logo" class="h-10 md:h-20 w-atuo absolute -ml-0 md:-ml-0 -mt-6 md:-mt-12"/>
+                <img src="public/assets/Logo.png" alt="logo" class="max-h-10 md:max-h-20 w-atuo absolute -ml-0 md:-ml-0 -mt-6 md:-mt-12"/>
               </span>
               <span class="text-dark-black ml-10 md:ml-20">
                 ng
@@ -53,18 +53,18 @@
       <!-- ABOUT SECTION -->
       <section id="about" class="">
         <div class="h-auto my-64">
-          <div id="gradient" class="absolute bg-grad-bg h-96 md:h-56 w-full mt-40 mx-0 my-auto left-0 z-1"></div>
-          <div id="card-wrapper" class="relative w-10/12 h-auto mx-auto  shadow-card-shadow rounded-lg items-center">
-            <div id="card" class="w-full h-auto items-center bg-card-bg md:flex py-8 px-16 z-2 mx-auto rounded-lg min-w-fit">
+          <div id="gradient" class="absolute bg-grad-bg h-gradh w-full mt-24 mx-0 my-auto left-0 z-1 drop-shadow-lg"></div>
+          <div id="card-wrapper" class=" bg-card-bg relative w-10/12 h-auto mx-auto rounded-lg items-center drop-shadow-lg my-2">
+            <div id="card" class="w-10/12 h-auto items-center bg-card-bg md:flex py-8 px-4 z-2 mx-auto rounded-lg">
               <img src="public/assets/profile.jpg" class="h-auto mx-auto sm:w-1/2 md:w-1/3 md:mr-11 rounded-xl drop-shadow-lg">
-              <div class="py-3">
+              <div class="py-2">
                 <h2 class="mx-0 my-auto p-0 text-lg md:text-2xl text-black font-bold text-center mt-2">Ricky Payares</h2>
-                <p class="text-sm md:text-base text-gray-800 mb-2 text-center">Engineer, Philosopher, Creative</p>
-                <p class="text-sm text-gray-800 mb-5">The goal of this website is to present a portfolio of the peices I produce as I explore concepts in creative development and technical art production. Here's a bit more about me:</p>
-                <h4 class="text-md md:text-xl text-black mt-5 font-semibold">Interests</h4>
+                <p class="text-sm md:text-sm text-gray-800 mb-2 text-center">Engineer, Philosopher, Creative</p>
+                <p class="text-xs text-gray-800 mb-5 text-center">The goal of this website is to present a portfolio of the peices I produce as I explore concepts in creative development and technical art production. Here's a bit more about me:</p>
+                <h4 class="text-md md:text-xl text-black mt-5 font-semibold text-center">Interests</h4>
                 <p class="text-sm text-gray-800 ml-5 mt-2 text-center"> Interaction design, communication design, programmatic & algorithmic computational art, audio/visual synthesis, projection mapping, computer vision, and neural networks & training models.</p>
                 <p class="text-sm text-gray-800 ml-5 mt-2 text-center">Music, visual art, photography, print, and clothing.</p>
-                <a href="./exhibit/resume.html" class="text-center">Learn more about me</a>
+                <a href="./exhibit/resume.html" class="text-blue-400"><p class=" mt-4 text-center hover:font-semibold">See more about my technical experience here.</p></a>
               </div>
             </div>
           </div>
@@ -73,95 +73,76 @@
 
       <!-- PROJECTS GALLERY -->
       <section id="projects">
-        <h2 id="Gallery" class="text-6xl text-card-bg font-semibold text-center">Works</h2>
-        <div id="container" class="my-2 justify-between flex align-center mx-auto items-center w-8/12">
+        <h2 id="Gallery" class="text-lg md:text-6xl text-card-bg font-semibold text-center">Works</h2>
+        <div id="container" class="flex w-10/12 mx-auto justify-evenly gap-2 h-glsm md:h-glmd lg:h-gllg">
 
-          <div id="item" class="w-1/3 mx-6 my-12 h-1/6 hover:text-orange-700">
+          <div id="item" class="w-1/3 h-auto">
             <a href="/exhibit/speaksign.html" class="hover:cursor-pointer">
-              <img src="public/assets/SpeakSign-img.jpg" alt="" class="h-5/6 w-auto">
-              <h2>SpeakSign</h2>
-              <p>ASL Interpreter using Computer Vision & color detection</p>
+              <img src="public/assets/SpeakSign-img.jpg" alt="" class="w-full h-auto">
+              <h2 class="text-md">SpeakSign</h2>
+              <p class="text-xs">ASL Interpreter using Computer Vision & color detection</p>
             </a>
           </div>
-         <div id="item" class="w-1/3 mx-6 my-12 h-1/6">
+         <div id="item" class="w-1/3 h-auto">
             <a href="#BendWell" class="hover:cursor-pointer">
-              <img src="public/assets/Bengwell-img.jpg" alt="" class="h-5/6 w-auto">
-              <h2>BendWell</h2>
-              <p>Wellness application using Tensorflow & Teachable Machine</p>
+              <img src="public/assets/Bengwell-img.jpg" alt="" class="w-full h-auto">
+              <h2 class="text-md">BendWell</h2>
+              <p class="text-xs">Wellness application using Tensorflow & Teachable Machine</p>
             </a>
           </div>
-          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
+          <div id="item" class=" w-1/3 h-auto">
             <a href="" class="hover:cursor-pointer">
-              <img src="public/assets/project-card.jpg" alt="" class="h-5/6 w-auto">
-              <h2>Project 3</h2>
-              <p class="w-3/4">Sample project description for testing text length.</p>
+              <img src="public/assets/project-card.jpg" alt="" class="w-full h-auto">
+              <h2 class="text-md">Project 3</h2>
+              <p class="text-xs">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
+          <div id="item" class=" w-1/3 h-auto">
             <a href="" class="hover:cursor-pointer">
-              <img src="public/assets/project-card.jpg" alt="" class="h-5/6 w-auto">
-              <h2>Project 4</h2>
-              <p class="w-3/4">Sample project description for testing text length.</p>
+              <img src="public/assets/project-card.jpg" alt="" class="">
+              <h2 class="text-md">Project 4</h2>
+              <p class="text-xs">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
+          <div id="item" class=" w-1/3 h-auto">
             <a href="" class="hover:cursor-pointer">
-              <img src="public/assets/project-card.jpg" alt="" class="h-5/6 w-auto">
-              <h2>Project 5</h2>
-              <p class="w-3/4">Sample project description for testing text length.</p>
+              <img src="public/assets/project-card.jpg" alt="" class="">
+              <h2 class="text-md">Project 5</h2>
+              <p class="text-xs">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
+          <div id="item" class=" w-1/3 h-auto">
             <a href="" class="hover:cursor-pointer">
-              <img src="public/assets/project-card.jpg" alt="" class="h-5/6 w-auto">
-              <h2>Project 6</h2>
-              <p class="w-3/4">Sample project description for testing text length.</p>
+              <img src="public/assets/project-card.jpg" alt="" class="">
+              <h2 class="text-md">Project 6</h2>
+              <p class="text-sm">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
+          <div id="item" class=" w-1/3 h-auto">
             <a href="" class="hover:cursor-pointer">
-              <img src="public/assets/project-card.jpg" alt="" class="h-5/6 w-auto">
-              <h2>Project 7</h2>
-              <p class="w-3/4">Sample project description for testing text length.</p>
+              <img src="public/assets/project-card.jpg" alt="" class="">
+              <h2 class="text-md">Project 7</h2>
+              <p class="text-xs">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
+          <div id="item" class=" w-1/3 h-auto">
             <a href="" class="hover:cursor-pointer">
-              <img src="public/assets/project-card.jpg" alt="" class="h-5/6 w-auto">
-              <h2>Project 8</h2>
-              <p class="w-3/4">Sample project description for testing text length.</p>
+              <img src="public/assets/project-card.jpg" alt="" class="">
+              <h2 class="text-md">Project 8</h2>
+              <p class="text-xs">Sample project description for testing text length.</p>
             </a>
           </div>
-          <div id="item" class=" w-1/3 mx-6 my-12 h-1/6">
+          <div id="item" class=" w-1/3 h-auto">
             <a href="" class="hover:cursor-pointer">
-              <img src="public/assets/project-card.jpg" alt="" class="h-5/6 w-auto">
-              <h2>Project 9</h2>
-              <p class="w-3/4">Sample project description for testing text length.</p>
+              <img src="public/assets/project-card.jpg" alt="" class="">
+              <h2 class="text-md">Project 9</h2>
+              <p class="text-xs">Sample project description for testing text length.</p>
             </a>
           </div>
         </div>
-      </section>
-
-      <section id="details" class="mt-96">
-
-        <div id="BendWell" class="p-10 bg-card-bg">
-          <div id="container" class="flex align-center items-center mt-10">
-            <div class="mt-10 mb-5 mx-14">
-              <h2 class="mt-10 text-4xl">BendWell</h2>
-              <p class="mt-5 text-base">This is the artistic piece about blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah</p>
-              <p class="text-base mt-5">And this is the technical piece  blah blah blah blah blah blah  blah blah blah blah blah blah blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah  blah blah blah blah blah blah</p>
-            </div>
-            <img src="public/assets/BendWell-img.png" class="mx-5 h-80 w-auto my-auto rounded-lg"/>
-          </div>
-          <img src="public/assets/Authors-bendwell.png" class="mx-auto h-80 w-auto"/>
-        </div>
-
-
       </section>
     </div>
-
   </main>
-
   <footer>
 
 
