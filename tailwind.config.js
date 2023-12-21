@@ -13,13 +13,10 @@ module.exports = {
       'card-shadow': '-20px 0 35px -25px black, 20px 0 35px -25px black',
     },
     height: {
-      'glsm':  '800px',
-      'glmd': '1000px',
-      'gllg': '1100px',
+      'glph': '200px',
+      'glsm':  '1000px',
+      'glmd': '900px',
       'gradh': '300px',
-      'icon-mini': '20px',
-      'icon-normal': '40px',
-      'hero-main': '80px',
     }
   },
   plugins: [],
