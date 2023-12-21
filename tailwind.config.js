@@ -7,6 +7,7 @@ module.exports = {
         'dark-black': '#14161b',
         'grad-bg': '#999955',
         'card-bg': '#E9E2D0',
+        'res-grad-bg': '#D6D58E'
       }
     },
     boxShadow: {
@@ -17,6 +18,7 @@ module.exports = {
       'glsm':  '1000px',
       'glmd': '900px',
       'gradh': '300px',
+      'res-gradh': '500px',
     }
   },
   plugins: [],
