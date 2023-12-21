@@ -8,39 +8,46 @@
   <title>SpeakSign</title>
   <link rel="stylesheet" href="../public/style.css">
 </head>
-<body>
-    <main class="bg-card-bg h-screen">
+<body class="bg-gray-700">
+    <main class="mx-5">
         <a href="../index.html" class="">
-            <button class="px-2 md:px-5 py-1 text-sm md:text-xl hover:text-green-600 ml-5 mt-5 rounded-xl hover:bg-gray-300 hover:bg-opacity-70 hover:font-semibold hover:drop-shadow-md ring-green-600 hover:ring-1">Back</button>
+            <button class="px-2 md:px-5 py-1 text-sm md:text-xl lg:text-3xl text-green-400 hover:text-dark-black mt-1 mb-1 rounded-xl hover:bg-green-400 hover:bg-opacity-70 hover:font-semibold hover:drop-shadow-md ring-green-600">Back</button>
         </a>
-        <section id="resume" class="p-3">
-            <div id="header" class="">
-                <h1 class="text-center text-4xl">Ricardo Payares</h1>
-                <h5 class="text-center text-sm">Full Stack Engineer</h5>
-                <p class="text-xs text-center mt-2">Languages: JavaScript, TypeScript, C++, HTML/CSS, SQL, Python</p>
-                <p class="text-xs text-center">Technologies: React, Redux, Node.js, Express, PostgresSQL, Figma</p>
+        <section id="resume">
+            <div id="resume-wrapper" class="lg:my-20 lg:py-20 w-full lg:w-3/4 bg-card-bg mx-auto py-5 px-2 lg:px-24 rounded-lg drop-shadow-lg">
+                <div id="header" class="">
+                    <h1 class="text-center text-4xl lg:text-6xl">Ricardo Payares</h1>
+                    <h5 class="text-center text-sm lg:text-xl">Full Stack Engineer - Jersey City, NJ</h5>
+                    <p class="text-xs text-center mt-2 lg:text-xl lg:mt-5">Languages: JavaScript/TypeScript, C++, HTML/CSS, SQL, Python</p>
+                    <p class="text-xs text-center lg:text-xl">Technologies: React, Redux, Node.js, Express, PostgresSQL, Figma</p>
+                </div>
+                <div id="exp">
+                    <h3 class="text-md md:text-xl lg:text-4xl text-black mt-5 font-semibold">Experience</h3>
+                    <p class="text-sm md:text-lg text-blue-500 ml-5 lg:text-2xl">Bloomberg LP.</p>
+                    <p class="text-sm md:text-base text-gray-800 ml-10 lg:text-xl">Software Engineer (June 2022 - Present)</p>
+                    <p class="text-xs text-gray-800 ml-10 lg:text-lg lg:ml-16">Electronic Market Making Workflows (ETMM)</p>
+                    <ul class="text-xs lg:text-base ml-10 lg:ml-20 text-gray-800 list-disc">
+                        <li>Contributed to the development and maintenance of ETMM, Bloomberg's premium fixed income trading product accross 9 backend services, 1 UI, and several databases.</li>
+                        <li>Worked closely with Product and QA teams to plan, coordinate, implement, test and release new features based on client needs and expectations.</li>
+                        <li>Triaged and investigated urgent client requests and major outages when relevant services were impacted.</li>
+                    </ul>
+                </div>
+                <div id="edu">
+                    <h3 class="text-md md:text-xl text-black mt-5 font-semibold lg:text-4xl">Education</h3>
+                    <p class="text-sm md:text-lg text-purple-600 ml-5 lg:text-2xl">New York University College of Arts & Sciences ('22)</p>
+                    <p class="text-sm md:text-base text-gray-800 ml-10 lg:text-xl">B.A. in Computer Science</p>
+                    <p class="text-xs text-gray-800 ml-10 lg:ml-16 lg:text-lg">Minors in Mathematics & Philosophy</p>
+                    <p class="text-sm md:text-lg text-red-600 mt-2 ml-5 lg:text-xl">Fullstack Academy ('22)</p>
+                    <p class="text-xs md:text-base text-gray-800 ml-10 lg:text-lg">Software Engineering Immersive</p>
+                </div>
+                <div id="awards">
+                    <h3 class="text-md md:text-xl text-black mt-5 font-semibold lg:text-4xl">Awards</h3>
+                    <p class="text-xs md:text-lg ml-5 lg:text-xl">Nick Russo Award For Outstanding Engineering Design ('19)</p>
+                    <p class="text-xs md:text-base ml-5 mt-2 lg:text-xl">Josh Goldfaden Award for Outstanding Contributions to Writing ('19)</p>
+                </div>
             </div>
-            <div id="exp">
-                <h3 class="text-md md:text-xl text-black mt-5 font-semibold">Experience</h3>
-                <p class="text-sm md:text-lg text-blue-500 ml-5">Bloomberg LP.</p>
-                <p class="text-sm md:text-base text-gray-800 ml-10">Software Engineer (June 2022 - Present)</p>
-                <p class="text-sm text-gray-800 ml-10">Electronic Market Making Workflows (ETMM)</p>
-            </div>
-            <div id="edu">
-                <h3 class="text-md md:text-xl text-black mt-5 font-semibold">Education</h3>
-                <p class="text-sm md:text-lg text-purple-600 ml-5">New York University College of Arts & Sciences ('22)</p>
-                <p class="text-sm md:text-base text-gray-800 ml-10">B.A. in Computer Science</p>
-                <p class="text-sm text-gray-800 ml-10">Minors in Mathematics & Philosophy</p>
-                <p class="text-sm md:text-lg text-red-600 mt-2 ml-5">Fullstack Academy ('22)</p>
-                <p class="text-sm md:text-base text-gray-800 ml-10">Software Engineering Immersive</p>
-            </div>
-            <div id="awards">
-                <h3 class="text-md md:text-xl text-black mt-5 font-semibold">Awards</h3>
-                <p class="text-sm md:text-lg ml-5">Nick Russo Award For Outstanding Engineering Design ('19)</p>
-                <p class="text-sm md:text-base ml-5 mt-2">Josh Goldfaden Award for Outstanding Contributions to Writing ('19)</p>
-            </div>
-        </section>
-    </main>
-</body>
-
+            </section>
+        </main>
+    </body>
+    
 </html>
