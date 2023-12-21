@@ -774,6 +774,18 @@ body {
   margin-top: 16rem;
 }
 
+.-mb-8 {
+  margin-bottom: -2rem;
+}
+
+.-mb-4 {
+  margin-bottom: -1rem;
+}
+
+.-mb-12 {
+  margin-bottom: -3rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -965,6 +977,18 @@ body {
   text-indent: 1.25rem;
 }
 
+.indent-40 {
+  text-indent: 10rem;
+}
+
+.indent-20 {
+  text-indent: 5rem;
+}
+
+.indent-10 {
+  text-indent: 2.5rem;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1108,6 +1132,14 @@ body {
 }
 
 @media (min-width: 640px) {
+  .sm\:-mb-0 {
+    margin-bottom: -0px;
+  }
+
+  .sm\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
   .sm\:w-1\/2 {
     width: 50%;
   }
@@ -1148,6 +1180,50 @@ body {
 
   .md\:mt-24 {
     margin-top: 6rem;
+  }
+
+  .md\:-mb-8 {
+    margin-bottom: -2rem;
+  }
+
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .md\:-mb-0 {
+    margin-bottom: -0px;
+  }
+
+  .md\:-mb-16 {
+    margin-bottom: -4rem;
+  }
+
+  .md\:-mt-20 {
+    margin-top: -5rem;
+  }
+
+  .md\:-mt-10 {
+    margin-top: -2.5rem;
+  }
+
+  .md\:-mt-4 {
+    margin-top: -1rem;
+  }
+
+  .md\:-mt-2 {
+    margin-top: -0.5rem;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
+  .md\:mt-4 {
+    margin-top: 1rem;
   }
 
   .md\:flex {
@@ -1269,6 +1345,14 @@ body {
     margin-top: 20rem;
   }
 
+  .lg\:-mb-16 {
+    margin-bottom: -4rem;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:max-h-14 {
     max-height: 3.5rem;
   }
@@ -1287,6 +1371,14 @@ body {
 
   .lg\:rounded-3xl {
     border-radius: 1.5rem;
+  }
+
+  .lg\:indent-52 {
+    text-indent: 13rem;
+  }
+
+  .lg\:indent-44 {
+    text-indent: 11rem;
   }
 
   .lg\:text-4xl {
