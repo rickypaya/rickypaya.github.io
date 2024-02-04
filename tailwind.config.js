@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.html", "./exhibit/*.html"],
+  content: ["./*.html", "./exhibit/*.html", "./exhibit/creative/*.html"],
   theme: {
     extend: {
       colors: {
@@ -14,10 +14,7 @@ module.exports = {
       'card-shadow': '-20px 0 35px -25px black, 20px 0 35px -25px black',
     },
     height: {
-      'glph': '200px',
-      'glsm':  '1000px',
-      'glmd': '900px',
-      'gradh': '300px',
+      'gradh': '600px',
       'res-gradh': '500px',
     }
   },
