@@ -16,8 +16,8 @@
         <img src="public/assets/Logo.png" alt="logo" class="max-h-8 md:max-h-10 lg:max-h-14 ml-2"/>
         </a>
       <div class="flex items-stretch gap-1 sm:gap-3 md:gap-5">
-        <a href="#home" class="text-xs md:text-lg lg:text-xl font-semibold hover:text-green-600">Home</a>
-        <a href="#about" class="text-xs md:text-lg lg:text-xl font-semibold hover:text-green-600">About</a>
+        <a href="/index" class="text-xs md:text-lg lg:text-xl font-semibold hover:text-green-600">Home</a>
+        <a href="/exhibit/resume.html" class="text-xs md:text-lg lg:text-xl font-semibold hover:text-green-600">Resume</a>
         <a href="/exhibit/index.html" class="text-xs md:text-lg lg:text-xl font-semibold hover:text-green-600">Projects</a>
       </div>
       <a href="">
@@ -27,11 +27,11 @@
   </header>
 
   <main>
-    <div class="mx-auto grid grid-rows-1 w-screen">
+    <div class="mt-20 mx-auto grid grid-rows-1 w-screen">
       <!-- HERO SECTION -->
-      <section id="home" class="mt-20 flex">
-        <div class="py-44 mx-10 text-slate-800">
-          <div class="bg-card-bg bg-opacity-80 w-2/3 -mt-7 -ml-4 mr-56 p-3 rounded-3xl">
+      <section id="home" class="md:flex justify-center items-center">
+        <div class="text-slate-800">
+          <div class="bg-card-bg bg-opacity-80 p-3 rounded-2xl mx-10 md:ml-5">
             <h1 class="text-md md:text-4xl font-bold mt-2">
               <span class="inline-block">
                 <img src="public/assets/Logo.png" alt="logo" class="max-h-10 md:max-h-20 w-atuo absolute -ml-0 md:-ml-0 -mt-6 md:-mt-12"/>
@@ -47,25 +47,30 @@
             <h1 class="text-sm md:text-3xl font-semibold">for dynamic digital applications using innovative and equitable design to influence positive change.</h1>
           </div>
         </div>
-        <img src="public/assets/Hero-image.png" class="absolute w-full h-auto -z-10">
+        <img src="public/assets/Hero-image.png" class="
+        block h-heroh md:h-heroh-md
+        mx-auto md:mr-5
+        mt-5 md:mt-0
+        rounded-2xl
+        ">
       </section>
 
       <!-- ABOUT SECTION -->
-      <section id="about" class="mt-64 w-fit">
+      <section id="about" class=" mt-10">
         <div class="h-auto mb-8 flex">
           <div id="card-wrapper" class=" bg-card-bg w-10/12 md:w-8/10 h-auto mx-auto rounded-lg items-center drop-shadow-lg my-2">
-            <div id="card" class="w-10/12 h-auto items-center bg-card-bg md:flex py-8 px-4 z-2 mx-auto rounded-lg">
+            <div id="card" class="w-full h-auto items-center bg-card-bg md:flex py-8 px-4 z-2 mx-auto rounded-lg">
               <img src="public/assets/profile.jpg" class="h-auto mx-auto w-1/2 md:w-1/3 md:mr-11 rounded-xl drop-shadow-lg">
               <div id="bio" class="py-2">
-                <h2 class="mx-0 my-auto p-0 text-lg md:text-2xl lg:text-4xl text-black font-bold text-center mt-2">Ricky Payares</h2>
-                <p class="text-sm md:text-sm lg:text-md text-gray-800 mb-2 text-center">Engineer, Philosopher</p>
-                <p class="text-xs lg:text-base text-gray-800 mb-5 text-center">The goal of this website is to present a portfolio of the peices I produce as I explore concepts in entrepreneurial engineering, software design and marketing, project management, interaction design, creative technology, product innovation, and more. Here's a bit more about me:</p>
-                <h4 class="text-md md:text-xl lg:text-xl text-black mt-5 lg:mt-10 font-semibold text-center">About Me</h4>
-                <p class="text-sm lg:text-base text-gray-800 ml-5 mt-2 text-center">Originally, I am a Cuban American born in Miami, Florida, and one of the greatest lessons I've learned from the strong community of Cubans around me is to use what is at your disposal to solve the issue at hand. This is what has transferred to my work as a software engineer. My goal is to use the skills in my arsenal of frameworks and technologies, business strategy, and prototyping to solve the problems affecting marginalized communities through some hybrid digital-physical solution. The grandest solution I see is one that creates systems of support for those communities it provides for as it scales-as opposed to taking advantage of them- to the end of supporting the autonomy of these communities.</p>
-                <h4 class="text-md md:text-xl lg:text-xl text-black mt-5 lg:mt-10 font-semibold text-center">Interests</h4>
-                <p class="text-sm lg:text-base text-gray-800 ml-5 mt-2 text-center">Music, digital art, photography, print, and clothing.</p>
-                <p class="text-sm lg:text-base text-gray-800 ml-5 mt-2 text-center">Interaction design, UX/UI, fullstack development, creative technology, entrepreneuship, digital product development, startups/freelance/open source, techology & business ethics.</p>
-                <p class="text-sm lg:text-base text-gray-800 ml-5 mt-2 text-center">Creative Tech: Programmatic & algorithmic computational art, audio/visual synthesis, projection mapping, computer vision, and neural networks & training models.</p>
+                <h2 class="mx-0 my-auto p-0 text-black font-bold text-center mt-2">Ricky Payares</h2>
+                <p class="text-gray-800 mb-2 text-center">Engineer, Philosopher</p>
+                <p class="text-gray-800 mb-5 text-center">The goal of this website is to present a portfolio of the peices I produce as I explore concepts in entrepreneurial engineering, software design and marketing, project management, interaction design, creative technology, product innovation, and more. Here's a bit more about me:</p>
+                <h4 class="text-black mt-5 lg:mt-10 font-semibold text-center">About Me</h4>
+                <p class="text-gray-800 ml-5 mt-2 text-center">Originally, I am a Cuban American born in Miami, Florida, and one of the greatest lessons I've learned from the strong community of Cubans around me is to use what is at your disposal to solve the issue at hand. This is what has transferred to my work as a software engineer. My goal is to use the skills in my arsenal of frameworks and technologies, business strategy, and prototyping to solve the problems affecting marginalized communities through some hybrid digital-physical solution. The grandest solution I see is one that creates systems of support for those communities it provides for as it scales-as opposed to taking advantage of them- to the end of supporting the autonomy of these communities.</p>
+                <h4 class="text-black mt-5 lg:mt-10 font-semibold text-center">Interests</h4>
+                <p class="text-gray-800 ml-5 mt-2 text-center">Music, digital art, photography, print, and clothing.</p>
+                <p class="text-gray-800 ml-5 mt-2 text-center">Interaction design, UX/UI, fullstack development, creative technology, entrepreneuship, digital product development, startups/freelance/open source, techology & business ethics.</p>
+                <p class="text-gray-800 ml-5 mt-2 text-center">Creative Tech: Programmatic & algorithmic computational art, audio/visual synthesis, projection mapping, computer vision, and neural networks & training models.</p>
                 <a href="./exhibit/resume.html" class="text-blue-400"><p class=" mt-4 text-center hover:font-semibold">Learn about my technical experience here.</p></a>
               </div>
             </div>

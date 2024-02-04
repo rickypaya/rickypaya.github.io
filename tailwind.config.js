@@ -16,6 +16,8 @@ module.exports = {
     height: {
       'gradh': '600px',
       'res-gradh': '500px',
+      'heroh':'200px',
+      'heroh-md':'500px',
     }
   },
   plugins: [],
