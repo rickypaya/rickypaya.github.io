@@ -521,6 +521,16 @@
         font-size: 1.05rem;
         margin-right: 0.35em;
       }
+      @media (max-width: 700px) {
+        .credential-strip {
+          padding-block: var(--sp-2);
+        }
+        .credential-strip ul {
+          justify-content: center;
+          gap: var(--sp-2) var(--sp-3);
+          font-size: 0.68rem;
+        }
+      }
       .hairline-block {
         border: 1px solid var(--line);
         padding: var(--sp-4);
@@ -622,6 +632,7 @@
       @media (max-width: 560px) {
         .hero-text-content {
           justify-content: center;
+          margin-top: var(--sp-2);
         }
         .hero-text-inner {
           max-width: none;
@@ -657,6 +668,7 @@
           top: auto;
           height: auto;
           min-height: 100vh;
+          padding-top: 6.5rem;
         }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -705,6 +717,15 @@
       @media (max-width: 900px) {
         .svc-row {
           grid-template-columns: 1fr;
+        }
+        #services {
+          background: linear-gradient(
+            to bottom,
+            var(--mist) calc(100% - clamp(3.5rem, 8vw, 7rem)),
+            var(--navy-2) calc(100% - clamp(3.5rem, 8vw, 7rem))
+          ) !important;
+          padding-bottom: calc(var(--sp-7) + clamp(3.5rem, 8vw, 7rem)) !important;
+          margin-bottom: calc(-1 * clamp(3.5rem, 8vw, 7rem)) !important;
         }
       }
       .svc-card {
@@ -1345,9 +1366,7 @@
                 Beautiful</br>smiles,<br />daily.
               </h1>
               <p class="lede mt-4 reveal">
-                Over 30 years of dedication to perfection. We're the official
-                dental providers for the Miami&nbsp;Heat, University of Miami,
-                and FIU, and we treat every patient like the whole roster.
+                At Sunset Dentistry, we've spent more than three decades perfecting the art of caring for smiles from South Miami. Discover personalized treatment, the latest in dental technology, and a team that truly listens. Your healthiest, brightest smile starts here. Book your visit today.
               </p>
               <div class="btn-row mt-5 reveal">
                 <a href="schedule.html" class="btn btn-sky"

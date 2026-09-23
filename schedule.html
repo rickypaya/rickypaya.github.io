@@ -581,6 +581,45 @@
       .trio > div:last-child {
         border-right: 0;
       }
+
+      /* ---------- building photo (contact) ---------- */
+      .building-photo {
+        margin: var(--sp-5) 0 0;
+        aspect-ratio: 21 / 9;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .building-photo img {
+        object-position: 50% 72%;
+      }
+      .building-photo figcaption {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: var(--sp-3) var(--sp-4);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.85rem;
+        letter-spacing: 0.02em;
+        background: linear-gradient(0deg, rgba(0, 26, 48, 0.85), transparent);
+        width: 100%;
+        pointer-events: none;
+      }
+      .building-photo figcaption span {
+        display: block;
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        color: var(--paper);
+        letter-spacing: 0;
+      }
+      @media (max-width: 900px) {
+        .building-photo {
+          aspect-ratio: 4 / 3;
+          margin-top: var(--sp-4);
+          margin-inline: 0;
+        }
+        .building-photo figcaption {
+          padding: var(--sp-2) var(--sp-3);
+        }
+      }
       @media (max-width: 900px) {
         .trio {
           grid-template-columns: 1fr;
@@ -1244,26 +1283,13 @@
                 class="mt-2"
                 style="color: rgba(255, 255, 255, 0.78); font-size: 0.94rem"
               >
-                Submit a message online and await an email response from our
-                team.
-              </p>
-            </div>
-            <div style="border-color: rgba(255, 255, 255, 0.2)">
-              <svg class="icon on-dark" viewBox="0 0 32 32">
-                <path
-                  d="M16 4c-6 0-11 4.6-11 11 0 8 11 17 11 17s11-9 11-17c0-6.4-5-11-11-11Z"
-                />
-                <circle cx="16" cy="15" r="3.5" />
-              </svg>
-              <h3 class="mt-3" style="font-size: 1.15rem; color: var(--paper)">
-                Visit Our Office
-              </h3>
-              <p
-                class="mt-2"
-                style="color: rgba(255, 255, 255, 0.78); font-size: 0.94rem"
-              >
-                Sunset Professional Building<br />6280 Sunset Drive, Suite
-                404<br />South Miami, FL 33143
+                Email our office at
+                <a
+                  href="mailto:simles@sunsetdentistry.com"
+                  style="color: var(--sky-pale); font-weight: 600"
+                >
+                  simles@sunsetdentistry.com
+                </a>
               </p>
             </div>
             <div style="border-color: rgba(255, 255, 255, 0.2)">
@@ -1286,7 +1312,50 @@
                 >
               </p>
             </div>
+            <div style="border-color: rgba(255, 255, 255, 0.2)">
+              <svg class="icon on-dark" viewBox="0 0 32 32">
+                <path
+                  d="M16 4c-6 0-11 4.6-11 11 0 8 11 17 11 17s11-9 11-17c0-6.4-5-11-11-11Z"
+                />
+                <circle cx="16" cy="15" r="3.5" />
+              </svg>
+              <h3 class="mt-3" style="font-size: 1.15rem; color: var(--paper)">
+                Visit Our Office
+              </h3>
+              <p
+                class="mt-2"
+                style="color: rgba(255, 255, 255, 0.78); font-size: 0.94rem"
+              >
+                Sunset Professional Building<br />6280 Sunset Drive, Suite
+                404<br />South Miami, FL 33143
+              </p>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=6280+Sunset+Drive+Suite+404+South+Miami+FL+33143"
+                target="_blank"
+                rel="noopener"
+                class="svc-link mt-3"
+                style="color: var(--sky-pale)"
+                >Get directions
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M5 12h14M13 6l6 6-6 6" /></svg
+              ></a>
+            </div>
           </div>
+
+          <figure class="photo building-photo relative reveal">
+            <img
+              src="public/brand/BuildingImage.jpg"
+              width="1900"
+              height="1258"
+              alt="Front of the Sunset Professional Building at 6280 Sunset Drive, with the main entrance and stairs at center"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <span>Sunset Professional Building</span>
+              6280 Sunset Drive &middot; Suite 404
+            </figcaption>
+          </figure>
         </div>
       </section>
     </main>
