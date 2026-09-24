@@ -1,0 +1,1791 @@
+/* =====================================================================
+   Sunset Dentistry: shared stylesheet for all pages.
+   Fonts are loaded by <link> tags in each page's <head> (preconnected,
+   so they start downloading sooner than an @import here would).
+
+   Sections, in order: tokens and base, chrome (progress bar, side nav,
+   header), components, layout, hero, the layered stack, seams,
+   page-specific components, reveals, utilities.
+   ===================================================================== */
+
+:root {
+  /* ---- color: modern corporate blue, drawn from the Sunset Dentistry logo ---- */
+  --sky: #3fa9e8;
+  --sky-deep: #1c7fbe;
+  --sky-pale: #aee0fb;
+  --navy: #003e70;
+  --navy-2: #00294a;
+  --navy-3: #001a30;
+  --ink: #0a1e2e;
+  --ink-soft: #4c6478;
+  --paper: #ffffff;
+  --mist: #eff6fb;
+  --mist-2: #deebf6;
+  --line: #cfe1ee;
+  --line-soft: rgba(10, 30, 46, 0.12);
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Plus Jakarta Sans", -apple-system, "Segoe UI", sans-serif;
+
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2.4rem;
+  --sp-5: 3.6rem;
+  --sp-6: 5.2rem;
+  --sp-7: 7.5rem;
+  --sp-8: 10.5rem;
+
+  --container: 1360px;
+  --edge: clamp(1.5rem, 5vw, 4.5rem);
+  --ease: cubic-bezier(0.16, 0.8, 0.4, 1);
+
+  /* Height of the diagonal seam that forms the leading edge of a
+     section. Single source of truth for the seam itself and for the
+     room the preceding section reserves underneath it. */
+  --seam-h: clamp(3.5rem, 8vw, 7rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Native smooth scrolling is only for the no-library fallback.
+   html.st-ready is added before ScrollTrigger first reads the
+   scroller. ScrollTrigger caches scroll-behavior then and re-applies
+   it inline after every refresh, so it must already be "auto" by
+   that point. The script then picks smooth or instant itself (Lenis,
+   or behavior: "smooth"). html.lenis is a second safeguard. Reduced
+   motion never gets smooth jumps. */
+html.st-ready,
+html.lenis {
+  scroll-behavior: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+/* Lenis 1.3.26 base styles (from lenis/dist/lenis.css), inlined so
+   the only external requests are the three deferred scripts. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--serif);
+  font-weight: 480;
+  margin: 0;
+  letter-spacing: -0.01em;
+  color: var(--navy-2);
+}
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--edge);
+}
+
+/* ---------- scroll progress bar ---------- */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  /* full width, scaled on X: scroll updates only touch transform */
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 999;
+  background: linear-gradient(90deg, var(--sky), var(--navy));
+}
+
+/* ---------- side scroll-guide dots ---------- */
+.side-nav {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.side-nav button {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid var(--navy);
+  background: transparent;
+  padding: 0;
+  position: relative;
+  transition: all 0.35s var(--ease);
+}
+.side-nav button::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--navy-2);
+  background: var(--paper);
+  padding: 0.3em 0.7em;
+  border: 1px solid var(--line);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease);
+}
+.side-nav button:hover::after {
+  opacity: 1;
+}
+.side-nav button.is-active {
+  background: var(--sky);
+  border-color: var(--sky);
+  transform: scale(1.3);
+}
+@media (max-width: 900px) {
+  .side-nav {
+    display: none;
+  }
+}
+
+/* ---------- cross-page view transitions ----------
+   Same-origin page loads (clicking between the five pages) cross-fade
+   instead of flashing white. The header has its own transition name,
+   so rather than fading out and back in with the page it stays put as
+   one element: only what differs animates (the active nav link, and its
+   height when leaving a scrolled page, since every page opens at the
+   top with the taller header).
+   Progressive: browsers without cross-document view transitions ignore
+   the at-rule and navigate normally. Opted in only when motion is
+   allowed, so reduced motion gets instant page changes.
+   The new page is captured at its first render, before the deferred
+   scripts run; every page opens at the top, where the CSS stack and the
+   JS stack look identical, so nothing jumps when main.js takes over. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  .site-header {
+    view-transition-name: site-header;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+    animation-timing-function: var(--ease);
+  }
+  ::view-transition-group(site-header) {
+    animation-duration: 0.3s;
+    animation-timing-function: var(--ease);
+  }
+}
+
+/* ---------- header ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  padding-block: var(--sp-3);
+  transition:
+    background 0.4s var(--ease),
+    padding 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(207, 225, 238, 0.6);
+}
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom-color: var(--line);
+  padding-block: var(--sp-2);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img {
+  height: 55px;
+  width: auto;
+  transition: height 0.4s var(--ease);
+}
+.site-header.is-scrolled .logo img {
+  height: 55px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.nav-links a:not(.btn) {
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 4px;
+  color: var(--navy-2);
+}
+.nav-links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--sky);
+  transition: width 0.3s var(--ease);
+}
+.nav-links a:not(.btn):hover::after {
+  width: 100%;
+}
+.nav-links a.is-active {
+  color: var(--sky-deep);
+}
+.nav-links a.is-active::after {
+  width: 100%;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  padding: 0.3rem;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  margin: 5px 0;
+}
+@media (max-width: 900px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: var(--sp-2) var(--edge) var(--sp-4);
+    display: none;
+  }
+  .nav-links.is-open {
+    display: flex;
+  }
+  .nav-links a:not(.btn) {
+    padding-block: 0.8rem;
+    width: 100%;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 1.05em 1.9em;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition:
+    background 0.25s var(--ease),
+    color 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+.btn svg {
+  width: 1.05em;
+  height: 1.05em;
+  transition: transform 0.25s var(--ease);
+}
+.btn:hover svg {
+  transform: translateX(3px);
+}
+.btn-solid {
+  background: var(--navy);
+  color: var(--paper);
+}
+.btn-solid:hover {
+  background: var(--sky-deep);
+}
+.btn-sky {
+  background: var(--sky);
+  color: var(--paper);
+}
+.btn-sky:hover {
+  background: var(--navy);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--navy-2);
+  border-color: var(--navy-2);
+}
+.btn-outline:hover {
+  background: var(--navy-2);
+  color: var(--paper);
+}
+.btn-outline-light {
+  background: transparent;
+  color: var(--paper);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.btn-outline-light:hover {
+  background: var(--paper);
+  color: var(--navy);
+  border-color: var(--paper);
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  align-items: center;
+}
+
+/* ---------- type utilities ---------- */
+.display-1 {
+  font-size: clamp(3.2rem, 6.6vw, 6.6rem);
+  line-height: 0.98;
+  font-weight: 400;
+}
+.display-2 {
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+  line-height: 1.03;
+  font-weight: 440;
+}
+.display-3 {
+  font-size: clamp(1.9rem, 3vw, 2.9rem);
+  line-height: 1.08;
+  font-weight: 460;
+}
+.lede {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--ink-soft);
+  font-weight: 400;
+  max-width: 46ch;
+}
+
+/* ---------- layout grids ---------- */
+.split-5-7 {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 0;
+  align-items: stretch;
+}
+.split-7-5 {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 0;
+  align-items: stretch;
+}
+.split-8-4 {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  gap: var(--sp-5);
+}
+@media (max-width: 900px) {
+  .split-5-7,
+  .split-7-5,
+  .split-8-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- section rhythm ---------- */
+section {
+  padding-block: var(--sp-7);
+}
+.bg-paper {
+  background: var(--paper);
+}
+.bg-mist {
+  background: var(--mist);
+}
+.bg-navy {
+  background: var(--navy-2);
+  color: var(--paper);
+}
+.bg-navy h1,
+.bg-navy h2,
+.bg-navy h3,
+.bg-navy h4 {
+  color: var(--paper);
+}
+.bg-sky-deep {
+  background: var(--sky-deep);
+  color: var(--paper);
+}
+.bg-sky-deep h1,
+.bg-sky-deep h2,
+.bg-sky-deep h3,
+.bg-sky-deep h4 {
+  color: var(--paper);
+}
+
+.section-head {
+  max-width: 56rem;
+}
+
+/* ---------- hairlines, no floating cards ---------- */
+.credential-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: var(--sp-3);
+}
+.credential-strip ul {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--sp-6);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.credential-strip .stat-count {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin-right: 0.35em;
+}
+@media (max-width: 700px) {
+  .credential-strip {
+    padding-block: var(--sp-2);
+  }
+  .credential-strip ul {
+    justify-content: center;
+    gap: var(--sp-2) var(--sp-3);
+    font-size: 0.68rem;
+  }
+}
+.hairline-block {
+  border: 1px solid var(--line);
+  padding: var(--sp-4);
+}
+
+/* ---------- photography ---------- */
+.photo {
+  overflow: hidden;
+  background: var(--navy-2);
+  position: relative;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.02);
+  transition:
+    filter 0.7s var(--ease),
+    transform 1.2s var(--ease);
+}
+.photo:hover img {
+  filter: grayscale(0);
+}
+.photo:not(.photo-parallax):hover img {
+  transform: scale(1.04);
+}
+.hero-split {
+  position: relative;
+  width: 100%;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+/* ---------- inner photo parallax (data-parallax="0.12") ----------
+   The container (data-parallax) clips; its <picture> child is the
+   only thing the parallax moves. Hover effects (grayscale, zoom)
+   stay on the <img> inside, so no element gets transforms from two
+   systems. The script scales the picture to 1 + strength and scrubs
+   y from -strength/2 to +strength/2 of the container height, so the
+   oversize always covers the travel and no edge shows. Without
+   active parallax (touch, tablet/mobile, reduced motion, no JS) the
+   picture isn't transformed and the photo looks exactly as before.
+   display/height make the picture a block that fills the container
+   the way the img did, since inline boxes can't be transformed. */
+[data-parallax] > picture {
+  display: block;
+  height: 100%;
+  transform-origin: 50% 50%;
+}
+.hero-photo picture {
+  display: block;
+  height: 100%;
+  width: auto;
+  /* The hero photo is a square anchored to the left edge with the
+     tinted paper background to its right. Scaling from the left
+     keeps that left-aligned framing; the extra width grows right. */
+  transform-origin: 0 50%;
+}
+.hero-photo img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: grayscale(1);
+}
+.hero-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--navy-3);
+  opacity: 0.5;
+}
+.hero-text-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* bottom padding reserves room for #credentials' seam, which
+     overhangs the bottom of the hero */
+  padding-block: calc(var(--sp-7) + 3rem)
+    calc(var(--sp-6) + var(--seam-h));
+}
+.hero-text-inner {
+  max-width: 34rem;
+}
+.hero-text-inner h1,
+.hero-text-inner .lede {
+  color: var(--paper);
+}
+.hero-text-inner .lede {
+  color: rgba(255, 255, 255, 0.86);
+}
+@media (max-width: 900px) {
+  .hero-photo picture {
+    width: 100%;
+  }
+  .hero-photo img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+  .hero-tint {
+    opacity: 0.6;
+  }
+  .hero-text-content {
+    align-items: flex-end;
+    padding-block: var(--sp-5) calc(var(--sp-6) + var(--seam-h));
+  }
+  .hero-text-inner {
+    max-width: 30rem;
+  }
+}
+@media (max-width: 560px) {
+  .hero-text-content {
+    justify-content: center;
+    margin-top: var(--sp-2);
+  }
+  .hero-text-inner {
+    max-width: none;
+    text-align: center;
+  }
+  .hero-text-inner .btn-row {
+    justify-content: center;
+  }
+}
+
+/* ---------- hero frame ---------- */
+.hero-frame {
+  padding-top: 0;
+  padding-bottom: 0;
+  /* svh, not vh: the hero is a pinned layer, and svh doesn't change
+     when a mobile URL bar shows/hides (vh first as a fallback) */
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  /* unpinned below 900px, so the mobile hero keeps its original
+     content-driven sizing */
+  .hero-frame {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 6.5rem;
+  }
+}
+
+/* ---------- layered stack (native CSS sticky, works with JS off) ----------
+   Markup for each layer:
+
+     <div class="layer" data-layer data-pin="top|bottom|none" data-depth>
+       <div class="layer-pin" style="--layer-z: N">   <- pinned box P
+         <div class="layer-body">                     <- depth target B
+           <section>…</section>  (one or more; opaque backgrounds)
+         </div>
+       </div>
+     </div>
+
+   Constraint: only one system writes transform to each element. P is
+   pinned (CSS sticky, or ScrollTrigger when JS takes over). B gets
+   the scrubbed depth scale/drift. Reveal and hover transforms live
+   on descendants of the sections.
+
+   P is the sticky element. Its sticky "track" is its own wrapper W,
+   not a shared parent. That keeps each layer self-contained, so a
+   layer can sit in <main> while the next is the <footer> outside it.
+
+   W holds P plus a 100svh spacer. It also has margin-bottom: -100svh,
+   which pulls the next layer back up by the same amount. Document
+   flow and page height are therefore identical to an unpinned page;
+   the spacer only gives P room to stay stuck while the next layer
+   (higher --layer-z) scrolls up over it.
+
+   data-pin="top": [P][spacer]. P sticks at top: 0 once its top
+     reaches the viewport top and stays for 100svh of scroll. By then
+     the next layer, which starts where P ends in flow, has covered P
+     completely, so P is never seen unsticking. Only for layers
+     no taller than the viewport, or their bottom would never be seen.
+
+   data-pin="bottom": [spacer][P], P sticky with bottom: 0. Sticky
+     may shift P up into the spacer above it, but no higher than W's
+     top. So P first scrolls normally, sitting at W's top (where it
+     belongs in flow). Once its bottom edge reaches the viewport
+     bottom, P holds there for 100svh while the next layer covers it.
+     That lets tall layers be read in full before they're covered.
+     min-height: 100svh guarantees the layer is at least viewport
+     tall; a shorter one would stick to the bottom too early and
+     open a gap above it.
+
+   data-pin="none": never pins (e.g. the footer, the last layer).
+
+   Z-index: every P is positioned with an ascending --layer-z. Seams
+   (::before on the incoming section) paint inside their layer, so
+   each seam automatically sits above the layer it overhangs. The
+   fixed header (80), side nav (60) and progress bar (999) stay above
+   every layer.
+
+   When pinning is on: wider than 900px, at least 600px tall, aspect
+   ratio no wider than 12/5, and motion allowed. The height and
+   aspect limits make sure every data-pin="top" layer fits the
+   viewport: the tallest is the CTA at about max(570px, 5/12 × width),
+   driven by its square photo. Outside those conditions the layers
+   just stack in normal flow. Mobile gets no layering (see the Phase 2
+   notes): most of its sections are taller than the screen, and the
+   iOS toolbar makes CSS-only viewport pinning jumpy. Keep
+   PIN_QUERY in the script in sync with this media query.
+
+   .stack (on <main>) contains the spacer overhang: the last pinned
+   layer's spacer would otherwise extend past the footer and add
+   blank scroll at the end of the page. flow-root stops that layer's
+   negative margin collapsing out through </main>, so <main> ends
+   exactly where the layer's content ends. overflow-y: clip then cuts
+   off the spacer without making <main> a scroll container, which
+   would break sticky. The only thing clipped is the pinned CTA's
+   lower edge, and only while it's already under the footer.
+
+   JS handoff: once GSAP + ScrollTrigger have loaded and the "full"
+   motion config is active, the script adds html.st-stack. Every
+   CSS pinning rule below is scoped to html:not(.st-stack), so the
+   sticky/spacer fallback switches off and ScrollTrigger pins P
+   instead. If the CDN fails, the class is never added and this
+   CSS stack stays in charge. */
+.layer-pin {
+  position: relative;
+  z-index: var(--layer-z, auto);
+}
+/* B is the offsetParent for everything in the layer, so the script
+   can measure flow positions with offsetTop, which ignores B's
+   depth transform. */
+.layer-body {
+  position: relative;
+}
+/* Darkening overlay for covered layers. The script inserts it into
+   B, so it scales with the layer. Opacity is scrubbed from 0. */
+.layer-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: var(--navy-3);
+  opacity: 0;
+  pointer-events: none;
+}
+/* While JS layering is on, a covered layer shrinks to ~0.95 and
+   leaves slivers at its edges. Those show the page background, so
+   make it the same navy the shade fades to (instead of white).
+   Nothing else shows through: every layer is opaque. */
+html.st-stack,
+html.st-stack body {
+  background: var(--navy-3);
+}
+@media (min-width: 901px) and (min-height: 600px) and (max-aspect-ratio: 12/5) and (prefers-reduced-motion: no-preference) {
+  html:not(.st-stack) .layer[data-pin="top"],
+  html:not(.st-stack) .layer[data-pin="bottom"] {
+    margin-bottom: -100vh;
+    margin-bottom: -100svh;
+  }
+  html:not(.st-stack) .stack {
+    display: flow-root;
+    overflow-y: clip;
+  }
+  html:not(.st-stack) .layer[data-pin="top"]::after,
+  html:not(.st-stack) .layer[data-pin="bottom"]::before {
+    content: "";
+    display: block;
+    height: 100vh;
+    height: 100svh;
+    pointer-events: none;
+  }
+  html:not(.st-stack) .layer[data-pin="top"] > .layer-pin {
+    position: sticky;
+    top: 0;
+  }
+  html:not(.st-stack) .layer[data-pin="bottom"] > .layer-pin {
+    position: sticky;
+    bottom: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    /* if min-height adds space, the last section grows to fill it,
+       so the layer stays opaque */
+    display: flex;
+    flex-direction: column;
+  }
+  html:not(.st-stack)
+    .layer[data-pin="bottom"]
+    > .layer-pin
+    > .layer-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  html:not(.st-stack)
+    .layer[data-pin="bottom"]
+    > .layer-pin
+    > .layer-body
+    > :last-child {
+    flex-grow: 1;
+  }
+}
+
+/* ---------- diagonal seam, signature move ----------
+   A seam is the leading (top) edge of the *incoming* section: a
+   ::before that overhangs the previous section by --seam-h and is
+   clipped to a diagonal. Whatever the clip cuts away is transparent,
+   so the previous section shows through. That is what lets a later
+   phase slide the incoming section over a pinned one with its seam
+   attached.
+
+   Rules for use:
+   - The incoming section gets .seam-top plus one shape modifier.
+     It must not clip overflow itself (the seam lives outside its box).
+   - The previous section must reserve --seam-h of empty space at its
+     bottom (.seam-room, or its own padding as the hero does), so the
+     overhang never covers real content.
+   - The seam paints in the incoming section's stacking context, so
+     that section must stack above the one it overlaps.
+
+   The ::before bleeds 1px down into its own section so the clipped
+   bottom edge never lands on a fractional pixel beside the section's
+   top edge (which would show a hairline of the colour underneath).
+   isolation + z-index -1 keep that bleed row *behind* the section's
+   own content (e.g. the credential strip's top border) but still in
+   front of the section's background. */
+.seam-top {
+  position: relative;
+  isolation: isolate;
+}
+.seam-top::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - 1px);
+  height: calc(var(--seam-h) + 1px);
+  background: var(--seam-fill);
+  pointer-events: none;
+}
+/* one peak (at --seam-at, default 62%), rising from both bottom corners */
+.seam-peak::before {
+  clip-path: polygon(0 100%, var(--seam-at, 62%) 0, 100% 100%);
+}
+/* a notch at 40%: two wedges rising from the notch to the top
+   corners (the gap between them shows the previous section) */
+.seam-notch::before {
+  clip-path: polygon(0 100%, 40% 100%, 100% 0, 100% 100%, 0 100%);
+}
+/* Stepped seams: a low run, a diagonal step, a high run. A thin accent
+   line (::after) runs parallel to the edge, a quarter of the seam height
+   above it, in --seam-line at --seam-line-alpha. The line is a 1px band
+   cut with clip-path; on the shallow diagonal its thickness stays within
+   a few hundredths of a pixel of 1px. Y coordinates are multiples of
+   --seam-h rather than percentages: the box is 1px taller than the seam
+   (the anti-hairline bleed), so percentages would drift by up to 1px. */
+.seam-step-rise::after,
+.seam-step-fall::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - 1px);
+  height: calc(var(--seam-h) + 1px);
+  background: var(--seam-line, var(--seam-fill));
+  opacity: var(--seam-line-alpha, 0.45);
+  pointer-events: none;
+}
+/* low on the left, steps up between 38% and 58% */
+.seam-step-rise::before {
+  clip-path: polygon(
+    0 calc(var(--seam-h) * 0.8),
+    38% calc(var(--seam-h) * 0.8),
+    58% calc(var(--seam-h) * 0.3),
+    100% calc(var(--seam-h) * 0.3),
+    100% 100%,
+    0 100%
+  );
+}
+.seam-step-rise::after {
+  clip-path: polygon(
+    0 calc(var(--seam-h) * 0.55 - 0.5px),
+    38% calc(var(--seam-h) * 0.55 - 0.5px),
+    58% calc(var(--seam-h) * 0.05 - 0.5px),
+    100% calc(var(--seam-h) * 0.05 - 0.5px),
+    100% calc(var(--seam-h) * 0.05 + 0.5px),
+    58% calc(var(--seam-h) * 0.05 + 0.5px),
+    38% calc(var(--seam-h) * 0.55 + 0.5px),
+    0 calc(var(--seam-h) * 0.55 + 0.5px)
+  );
+}
+/* high on the left, steps down between 42% and 62% */
+.seam-step-fall::before {
+  clip-path: polygon(
+    0 calc(var(--seam-h) * 0.3),
+    42% calc(var(--seam-h) * 0.3),
+    62% calc(var(--seam-h) * 0.8),
+    100% calc(var(--seam-h) * 0.8),
+    100% 100%,
+    0 100%
+  );
+}
+.seam-step-fall::after {
+  clip-path: polygon(
+    0 calc(var(--seam-h) * 0.05 - 0.5px),
+    42% calc(var(--seam-h) * 0.05 - 0.5px),
+    62% calc(var(--seam-h) * 0.55 - 0.5px),
+    100% calc(var(--seam-h) * 0.55 - 0.5px),
+    100% calc(var(--seam-h) * 0.55 + 0.5px),
+    62% calc(var(--seam-h) * 0.55 + 0.5px),
+    42% calc(var(--seam-h) * 0.05 + 0.5px),
+    0 calc(var(--seam-h) * 0.05 + 0.5px)
+  );
+}
+/* A stepped top edge cut into a full-bleed photo that starts a section
+   (services: protective). This is that section's leading edge: the img
+   is clipped to the step, and the accent line is the same 1px band as
+   the stepped seams. Keep the img free of transforms (e.g. transform:
+   none inline), or the clip would zoom on hover.
+   What shows through the cut:
+   - normally, the .photo container's navy background, which matches
+     the navy section above (restorative) pixel for pixel;
+   - while JS layering is on (html.st-stack), nothing of this section.
+     The container and the top --seam-h of the host section turn
+     transparent, so the layer underneath (restorative, pinned and
+     receding) shows through the cut as this layer slides over it, like
+     every other seam. The CSS-only stack has no depth effect, so the
+     painted navy already matches there and stays. */
+.photo-step img {
+  clip-path: polygon(
+    0 calc(var(--seam-h) * 0.8),
+    38% calc(var(--seam-h) * 0.8),
+    58% calc(var(--seam-h) * 0.3),
+    100% calc(var(--seam-h) * 0.3),
+    100% 100%,
+    0 100%
+  );
+}
+html.st-stack .photo-step {
+  background: transparent;
+}
+html.st-stack .photo-step-host {
+  /* transparent behind the cut, the section colour everywhere else
+     (below --seam-h the photo covers this background anyway) */
+  background: linear-gradient(
+    transparent var(--seam-h),
+    var(--mist) var(--seam-h)
+  );
+}
+.photo-step::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--seam-h);
+  z-index: 1;
+  background: var(--paper);
+  opacity: 0.35;
+  pointer-events: none;
+  clip-path: polygon(
+    0 calc(55% - 0.5px),
+    38% calc(55% - 0.5px),
+    58% calc(5% - 0.5px),
+    100% calc(5% - 0.5px),
+    100% calc(5% + 0.5px),
+    58% calc(5% + 0.5px),
+    38% calc(55% + 0.5px),
+    0 calc(55% + 0.5px)
+  );
+}
+/* a single diagonal rising from the bottom-left to the top-right corner
+   (anchored at --seam-h, not 100%, so the 1px bleed doesn't tilt it) */
+.seam-wedge::before {
+  clip-path: polygon(0 var(--seam-h), 100% 0, 100% 100%, 0 100%);
+}
+/* a ramp rising from the bottom-left corner to 45%, then flat */
+.seam-ramp::before {
+  clip-path: polygon(0 100%, 45% 0, 100% 0, 100% 100%);
+}
+/* a folder tab: a raised plateau over the left 42% that steps down to
+   the section's edge through one 45deg shoulder (as wide as the seam is
+   tall). Shorter than the default seam, and small enough to fit inside
+   the previous section's normal bottom padding, so that section needs
+   no .seam-room. */
+.seam-tab {
+  --seam-h: clamp(2rem, 4vw, 3.5rem);
+}
+.seam-tab::before {
+  clip-path: polygon(
+    0 0,
+    42% 0,
+    calc(42% + var(--seam-h)) 100%,
+    100% 100%,
+    0 100%
+  );
+}
+/* For an incoming section that must clip its own overflow (e.g. a
+   watermark): overflow: hidden would also cut off its seam, so clip with
+   a box extended upward by the seam height instead. */
+.seam-clip {
+  clip-path: inset(calc(-1 * var(--seam-h) - 1px) 0 0);
+}
+.seam-room {
+  padding-bottom: calc(var(--sp-7) + var(--seam-h));
+}
+
+/* ---------- services cards ---------- */
+.svc-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+@media (max-width: 900px) {
+  .svc-row {
+    grid-template-columns: 1fr;
+  }
+}
+.svc-card {
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+.svc-card .photo {
+  aspect-ratio: 3/2;
+}
+.svc-card .svc-body {
+  padding: var(--sp-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.svc-card h3 {
+  font-size: 1.35rem;
+}
+.svc-card p {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  flex: 1;
+}
+.svc-link {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--sky-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.svc-link svg {
+  width: 1em;
+  height: 1em;
+  transition: transform 0.2s;
+}
+.svc-card:hover .svc-link svg {
+  transform: translateX(4px);
+}
+
+/* ---------- trio (unequal 3-col, hairline separated) ---------- */
+.trio {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 0.85fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.trio > div {
+  border-right: 1px solid var(--line);
+  padding: var(--sp-5) var(--sp-4);
+}
+.trio > div:last-child {
+  border-right: 0;
+}
+@media (max-width: 900px) {
+  .trio {
+    grid-template-columns: 1fr;
+  }
+  .trio > div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+/* financing: the stats trio sits edge to edge under the hero wedge */
+#stats .trio {
+  border-top: 0;
+}
+#stats .trio > div {
+  border-right: 0;
+}
+@media (max-width: 900px) {
+  #stats .trio > div {
+    border-bottom: 0;
+  }
+}
+.stat-num {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 4vw, 3.6rem);
+  font-weight: 460;
+  color: var(--sky-deep);
+  line-height: 1;
+}
+
+/* ---------- icons ---------- */
+.icon {
+  width: 30px;
+  height: 30px;
+  stroke: var(--sky-deep);
+  fill: none;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon.on-dark {
+  stroke: var(--sky-pale);
+}
+
+/* ---------- accordion ---------- */
+.accordion-item {
+  border-bottom: 1px solid var(--line);
+}
+.accordion-item:first-child {
+  border-top: 1px solid var(--line);
+}
+.accordion-item.on-dark {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.accordion-item.on-dark:first-child {
+  border-top-color: rgba(255, 255, 255, 0.22);
+}
+.accordion-trig {
+  width: 100%;
+  background: none;
+  border: 0;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding-block: var(--sp-3);
+  text-align: left;
+}
+.accordion-trig h4 {
+  font-size: 1.25rem;
+  font-weight: 460;
+}
+.accordion-trig .plus {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+}
+.accordion-trig .plus::before,
+.accordion-trig .plus::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+  transition: transform 0.3s ease;
+}
+.accordion-trig .plus::before {
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+.accordion-trig .plus::after {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+.accordion-item.is-open .accordion-trig .plus::after {
+  transform: translateX(-50%) rotate(90deg);
+  opacity: 0;
+}
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.accordion-item.is-open .accordion-panel {
+  max-height: 16em;
+}
+.accordion-panel p {
+  padding-bottom: var(--sp-3);
+  max-width: 52ch;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* ---------- checklist ---------- */
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7em;
+  padding-block: 0.4rem;
+  font-size: 0.95rem;
+}
+.check-list svg {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+  margin-top: 0.2em;
+  stroke: var(--sky-deep);
+}
+.bg-navy .check-list svg {
+  stroke: var(--sky-pale);
+}
+
+/* ---------- forms ---------- */
+.field {
+  margin-bottom: var(--sp-3);
+}
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 0.9em 1em;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--ink);
+}
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--sky);
+  outline-offset: 1px;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+@media (max-width: 560px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+@media (max-width: 560px) {
+  .time-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.time-opt {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 0.75em 0.5em;
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: all 0.2s;
+  color: var(--ink);
+}
+.time-opt.is-selected {
+  background: var(--sky);
+  color: var(--paper);
+  border-color: var(--sky);
+}
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.check-row input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sky);
+}
+
+/* ---------- page hero (about, services, financing) ----------
+   Content is vertically centred in at least 88% of the viewport. The
+   hero also reserves the mission seam's height at its bottom
+   (.seam-room). That space used to be a separate seam div below the
+   hero, so min-height adds it back and the content box, and therefore
+   the centring, is exactly what it was. svh while pinned (desktop,
+   where it equals vh); mobile keeps vh, so its layout is unchanged. */
+.page-hero {
+  padding-top: calc(var(--sp-7) + 3rem);
+  min-height: calc(88vh + var(--seam-h));
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 901px) {
+  .page-hero {
+    min-height: calc(88svh + var(--seam-h));
+  }
+}
+
+/* ---------- schedule: hero ----------
+   Centred call to action on a paper-to-pale-sky wash. The inner block's
+   generous bottom padding already clears the contact seam's overhang,
+   so no .seam-room is needed. svh while pinned (desktop), vh on mobile
+   so its layout is unchanged. */
+.schedule-hero {
+  padding-block: 0;
+  min-height: 80vh;
+  display: flex;
+  align-items: stretch;
+  background: linear-gradient(
+    180deg,
+    var(--paper) 0%,
+    color-mix(in srgb, var(--sky-pale) 45%, var(--paper)) 100%
+  );
+}
+@media (min-width: 901px) {
+  .schedule-hero {
+    min-height: 80svh;
+  }
+}
+
+/* ---------- schedule: building photo (contact) ---------- */
+.building-photo {
+  margin: var(--sp-5) 0 0;
+  aspect-ratio: 21 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.building-photo img {
+  object-position: 50% 72%;
+}
+.building-photo figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: var(--sp-3) var(--sp-4);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  background: linear-gradient(0deg, rgba(0, 26, 48, 0.85), transparent);
+  width: 100%;
+  pointer-events: none;
+}
+.building-photo figcaption span {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--paper);
+  letter-spacing: 0;
+}
+@media (max-width: 900px) {
+  .building-photo {
+    aspect-ratio: 4 / 3;
+    margin-top: var(--sp-4);
+    margin-inline: 0;
+  }
+  .building-photo figcaption {
+    padding: var(--sp-2) var(--sp-3);
+  }
+}
+
+/* ---------- leadership (team-lead) ---------- */
+.team-lead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+@media (max-width: 800px) {
+  .team-lead {
+    grid-template-columns: 1fr;
+  }
+}
+.team-lead > div {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sky);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.team-lead .photo {
+  aspect-ratio: 4/3.2;
+}
+/* dentist header: a compact portrait beside the name, so a tall
+   headshot never dictates the card's height */
+.dr-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--sp-1);
+}
+.dr-photo {
+  flex: none;
+  width: 128px;
+  height: 148px;
+  border-radius: 0;
+}
+.dr-photo img {
+  filter: none;
+  transform: none;
+}
+.dr-photo.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy), var(--navy-3));
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 440;
+  font-size: 2rem;
+  color: var(--paper);
+}
+.dr-header h3 {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.25;
+}
+.dr-bio {
+  display: grid;
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+}
+.dr-bio p {
+  margin: 0;
+}
+.dr-lead {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: var(--navy-2);
+}
+.dr-step {
+  position: relative;
+  padding-left: var(--sp-3);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.dr-step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 2px;
+  background: var(--sky);
+  border-radius: 2px;
+}
+/* third dentist: photo spans the title+bio column on wide screens;
+   photo sits beside the title on small screens, bio drops full-width */
+.team-lead .assoc:nth-child(3) {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "photo title"
+    "photo bio";
+  column-gap: var(--sp-3);
+}
+.team-lead .assoc:nth-child(3) .dr-photo {
+  grid-area: photo;
+  align-self: center;
+}
+.team-lead .assoc:nth-child(3) h3 {
+  grid-area: title;
+  align-self: start;
+  margin: 0;
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--line);
+}
+.team-lead .assoc:nth-child(3) .dr-bio {
+  grid-area: bio;
+}
+.team-lead .assoc:nth-child(3) .dr-divider {
+  display: none;
+}
+@media (max-width: 800px) {
+  .team-lead .assoc:nth-child(3) {
+    grid-template-areas:
+      "photo title"
+      "sep sep"
+      "bio bio";
+  }
+  .team-lead .assoc:nth-child(3) h3 {
+    align-self: center;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  .team-lead .assoc:nth-child(3) .dr-divider {
+    display: block;
+    grid-area: sep;
+    height: 1px;
+    background: var(--line);
+    margin-top: var(--sp-2);
+  }
+}
+
+/* ---------- team grid ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.team-mini {
+  background: var(--paper);
+  padding: var(--sp-3);
+}
+.avatar-block {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 440;
+  font-size: 2.1rem;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  margin-bottom: var(--sp-2);
+  background: linear-gradient(135deg, var(--sky-deep), var(--navy-2));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.team-mini:nth-child(3n + 2) .avatar-block {
+  background: linear-gradient(135deg, var(--sky), var(--sky-deep));
+}
+.team-mini:nth-child(3n + 3) .avatar-block {
+  background: linear-gradient(135deg, var(--navy), var(--navy-3));
+}
+.team-mini h5 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 0 0 0.15rem;
+}
+.team-mini .role {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sky-deep);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.team-mini p {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.filter-row {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-5);
+}
+.filter-chip {
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 0.6em 1.3em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: all 0.2s;
+  color: var(--ink);
+}
+.filter-chip.is-active {
+  background: var(--navy-2);
+  color: var(--paper);
+  border-color: var(--navy-2);
+}
+
+/* ---------- testimonial quote ---------- */
+.quote-big {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 2.1rem);
+  line-height: 1.25;
+}
+.quote-attr {
+  margin-top: var(--sp-3);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  background: var(--navy-3);
+  color: var(--paper);
+  padding-block: var(--sp-6) var(--sp-4);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--sp-5);
+}
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.site-footer h4 {
+  color: var(--paper);
+  font-size: 1.05rem;
+  margin-bottom: var(--sp-3);
+  font-weight: 460;
+}
+.footer-logo img {
+  height: 50px;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+.footer-about {
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 32ch;
+  margin-top: var(--sp-2);
+  font-size: 0.92rem;
+}
+.footer-links li {
+  margin-bottom: 0.65rem;
+}
+.footer-links a {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.92rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--sky-pale);
+}
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.88rem;
+  padding-block: 0.35rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.82);
+}
+.hours-row span:first-child {
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer-bottom {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-3);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- reveal-on-scroll ----------
+   Hidden states apply only under html.js (set in <head>), so content
+   stays visible if scripts are disabled or fail to run. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(42px);
+  transition:
+    opacity 0.9s var(--ease),
+    transform 0.9s var(--ease);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.js .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s var(--ease),
+    transform 0.6s var(--ease);
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+.reveal-stagger.is-visible > *:nth-child(1) {
+  transition-delay: 0.04s;
+}
+.reveal-stagger.is-visible > *:nth-child(2) {
+  transition-delay: 0.13s;
+}
+.reveal-stagger.is-visible > *:nth-child(3) {
+  transition-delay: 0.22s;
+}
+.reveal-stagger.is-visible > *:nth-child(4) {
+  transition-delay: 0.31s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- watermark ---------- */
+.watermark {
+  position: absolute;
+  font-family: var(--serif);
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--line-soft);
+  line-height: 0.8;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+.watermark.on-dark {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- utility ---------- */
+.mt-2 {
+  margin-top: var(--sp-2);
+}
+.mt-3 {
+  margin-top: var(--sp-3);
+}
+.mt-4 {
+  margin-top: var(--sp-4);
+}
+.mt-5 {
+  margin-top: var(--sp-5);
+}
+.mt-6 {
+  margin-top: var(--sp-6);
+}
+.relative {
+  position: relative;
+}
