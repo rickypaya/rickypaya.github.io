@@ -611,8 +611,7 @@ section {
   justify-content: flex-end;
   /* bottom padding reserves room for #credentials' seam, which
      overhangs the bottom of the hero */
-  padding-block: calc(var(--sp-7) + 3rem)
-    calc(var(--sp-6) + var(--seam-h));
+  padding-block: calc(var(--sp-7) + 3rem) calc(var(--sp-6) + var(--seam-h));
 }
 .hero-text-inner {
   max-width: 34rem;
@@ -697,8 +696,7 @@ section {
    on descendants of the sections.
 
    P is the sticky element. Its sticky "track" is its own wrapper W,
-   not a shared parent. That keeps each layer self-contained, so a
-   layer can sit in <main> while the next is the <footer> outside it.
+   not a shared parent. That keeps each layer self-contained.
 
    W holds P plus a 100svh spacer. It also has margin-bottom: -100svh,
    which pulls the next layer back up by the same amount. Document
@@ -722,7 +720,9 @@ section {
      tall; a shorter one would stick to the bottom too early and
      open a gap above it.
 
-   data-pin="none": never pins (e.g. the footer, the last layer).
+   data-pin="none": never pins (the last layer: nothing covers it).
+   The <footer> is not a layer: it follows </main> in flow, attached
+   to the bottom of the last layer, and scrolls up with it.
 
    Z-index: every P is positioned with an ascending --layer-z. Seams
    (::before on the incoming section) paint inside their layer, so
@@ -741,13 +741,13 @@ section {
    PIN_QUERY in the script in sync with this media query.
 
    .stack (on <main>) contains the spacer overhang: the last pinned
-   layer's spacer would otherwise extend past the footer and add
-   blank scroll at the end of the page. flow-root stops that layer's
+   layer's spacer would otherwise extend past the end of <main> and
+   add blank scroll at the end of the page. flow-root stops that layer's
    negative margin collapsing out through </main>, so <main> ends
    exactly where the layer's content ends. overflow-y: clip then cuts
    off the spacer without making <main> a scroll container, which
-   would break sticky. The only thing clipped is the pinned CTA's
-   lower edge, and only while it's already under the footer.
+   would break sticky. The only thing clipped is a pinned layer's
+   lower edge, and only while it's already under the last layer.
 
    JS handoff: once GSAP + ScrollTrigger have loaded and the "full"
    motion config is active, the script adds html.st-stack. Every
@@ -815,10 +815,7 @@ html.st-stack body {
     display: flex;
     flex-direction: column;
   }
-  html:not(.st-stack)
-    .layer[data-pin="bottom"]
-    > .layer-pin
-    > .layer-body {
+  html:not(.st-stack) .layer[data-pin="bottom"] > .layer-pin > .layer-body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -1633,8 +1630,13 @@ html.st-stack .photo-step-host {
   text-transform: uppercase;
 }
 
-/* ---------- footer ---------- */
+/* ---------- footer ----------
+   Not a layer, but positioned above every --layer-z: a ScrollTrigger
+   pin is position: fixed, and must not paint over the footer while
+   the last layer and footer scroll up over it. */
 .site-footer {
+  position: relative;
+  z-index: 20;
   background: var(--navy-3);
   color: var(--paper);
   padding-block: var(--sp-6) var(--sp-4);

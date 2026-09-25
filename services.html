@@ -47,7 +47,10 @@
     <!-- Fonts (preconnect so the CSS and font files start early) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -104,275 +107,289 @@
            reserved under the cosmetic seam). overflow: hidden clips the
            tooth illustration, which bleeds off the right edge. -->
       <div class="layer" data-layer data-pin="top" data-depth>
-      <div class="layer-pin" style="--layer-z: 1">
-      <div class="layer-body">
-      <section
-        class="bg-paper relative page-hero seam-room"
-        id="hero"
-        style="overflow: hidden"
-      >
-        <div
-          class="container split-7-5"
-          style="align-items: center; gap: var(--sp-5)"
-        >
-          <div class="reveal">
-            <h1 class="display-1">Services</h1>
-            <p class="lede mt-4">
-              Comprehensive dental care for every stage of life. From cosmetic
-              enhancements and restorative treatments to protective care and
-              advanced screenings, delivered with expertise and compassion.
-            </p>
-            <div class="mt-5">
-              <a href="schedule.html" class="btn btn-sky"
-                >Book Appointment
-                <svg
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" /></svg
-              ></a>
-            </div>
-          </div>
-          <div class="relative reveal" style="height: 100%; min-height: 340px">
-            <svg
-              viewBox="0 0 200 220"
-              style="
-                position: absolute;
-                right: -15%;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 130%;
-                max-width: 520px;
-                stroke: var(--sky-deep);
-                fill: none;
-                stroke-width: 1.2;
-                opacity: 0.9;
-              "
+        <div class="layer-pin" style="--layer-z: 1">
+          <div class="layer-body">
+            <section
+              class="bg-paper relative page-hero seam-room"
+              id="hero"
+              style="overflow: hidden"
             >
-              <path
-                d="M100 20c-22 0-36 14-49 14-15 0-24 11-24 30 0 27 11 53 20 77 5 13 9 24 17 24 9 0 10-36 19-36 5 0 7 16 14 16s9-16 14-16c9 0 10 36 19 36 8 0 12-11 17-24 9-24 20-50 20-77 0-19-9-30-24-30-13 0-27-14-43-14Z"
-              />
-              <path
-                d="M100 20c-22 0-36 14-49 14M100 20c22 0 36 14 49 14"
-                opacity=".5"
-              />
-            </svg>
+              <div
+                class="container split-7-5"
+                style="align-items: center; gap: var(--sp-5)"
+              >
+                <div class="reveal">
+                  <h1 class="display-1">Services</h1>
+                  <p class="lede mt-4">
+                    Comprehensive dental care for every stage of life. From
+                    cosmetic enhancements and restorative treatments to
+                    protective care and advanced screenings, delivered with
+                    expertise and compassion.
+                  </p>
+                  <div class="mt-5">
+                    <a href="schedule.html" class="btn btn-sky"
+                      >Book Appointment
+                      <svg
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                      >
+                        <path d="M5 12h14M13 6l6 6-6 6" /></svg
+                    ></a>
+                  </div>
+                </div>
+                <div
+                  class="relative reveal"
+                  style="height: 100%; min-height: 340px"
+                >
+                  <svg
+                    viewBox="0 0 200 220"
+                    style="
+                      position: absolute;
+                      right: -15%;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      width: 130%;
+                      max-width: 520px;
+                      stroke: var(--sky-deep);
+                      fill: none;
+                      stroke-width: 1.2;
+                      opacity: 0.9;
+                    "
+                  >
+                    <path
+                      d="M100 20c-22 0-36 14-49 14-15 0-24 11-24 30 0 27 11 53 20 77 5 13 9 24 17 24 9 0 10-36 19-36 5 0 7 16 14 16s9-16 14-16c9 0 10 36 19 36 8 0 12-11 17-24 9-24 20-50 20-77 0-19-9-30-24-30-13 0-27-14-43-14Z"
+                    />
+                    <path
+                      d="M100 20c-22 0-36 14-49 14M100 20c22 0 36 14 49 14"
+                      opacity=".5"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
-      </section>
-      </div>
-      </div>
       </div>
 
       <!-- ================ LAYER 2: COSMETIC SERVICES ================ -->
       <!-- bottom pin: taller than the viewport. Its stepped seam (rising,
            with an accent line) overhangs the hero. -->
       <div class="layer" data-layer data-pin="bottom" data-depth>
-      <div class="layer-pin" style="--layer-z: 2">
-      <div class="layer-body">
-      <section
-        class="bg-sky-deep seam-top seam-step-rise seam-room"
-        id="cosmetic"
-        style="--seam-fill: var(--sky-deep)"
-      >
-        <div class="container split-5-7" style="gap: var(--sp-6)">
-          <div class="reveal">
-            <h2 class="display-2" style="color: var(--paper)">
-              Cosmetic Services
-            </h2>
-            <p
-              class="mt-3"
-              style="color: rgba(255, 255, 255, 0.9); max-width: 36ch"
+        <div class="layer-pin" style="--layer-z: 2">
+          <div class="layer-body">
+            <section
+              class="bg-sky-deep seam-top seam-step-rise seam-room"
+              id="cosmetic"
+              style="--seam-fill: var(--sky-deep)"
             >
-              Enhance your smile with advanced cosmetic treatments, from
-              professional whitening to custom veneers and clear aligners.
-            </p>
+              <div
+                class="container split-5-7"
+                style="gap: var(--sp-6); align-items: center"
+              >
+                <div class="reveal">
+                  <h2 class="display-2" style="color: var(--paper)">
+                    Cosmetic Services
+                  </h2>
+                  <p
+                    class="mt-3"
+                    style="color: rgba(255, 255, 255, 0.9); max-width: 36ch"
+                  >
+                    Enhance your smile with advanced cosmetic treatments, from
+                    professional whitening to custom veneers and clear aligners.
+                  </p>
 
-            <div class="accordion-group mt-5">
-              <div class="accordion-item on-dark is-open">
-                <button class="accordion-trig">
-                  <h4>Bleaching (Teeth Whitening)</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    Professional-grade whitening that lifts years of staining in
-                    a single visit, with take-home maintenance kits available.
-                  </p>
+                  <div class="accordion-group mt-5">
+                    <div class="accordion-item on-dark is-open">
+                      <button class="accordion-trig">
+                        <h4>Bleaching (Teeth Whitening)</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          Professional-grade whitening that lifts years of
+                          staining in a single visit, with take-home maintenance
+                          kits available.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion-item on-dark">
+                      <button class="accordion-trig">
+                        <h4>Bonding</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          Achieve a beautiful smile with custom-made porcelain
+                          shells bonded to your teeth. Perfect for correcting
+                          discoloration, crooked teeth, gaps, or worn enamel
+                          with minimal tooth preparation.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion-item on-dark">
+                      <button class="accordion-trig">
+                        <h4>Porcelain Veneers</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          Thin, custom-fitted shells that reshape and brighten
+                          your smile while looking completely natural.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion-item on-dark">
+                      <button class="accordion-trig">
+                        <h4>Invisalign</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          Straighten your teeth discreetly with clear, removable
+                          aligners custom-fit to your smile.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="accordion-item on-dark">
-                <button class="accordion-trig">
-                  <h4>Bonding</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    Achieve a beautiful smile with custom-made porcelain shells
-                    bonded to your teeth. Perfect for correcting discoloration,
-                    crooked teeth, gaps, or worn enamel with minimal tooth
-                    preparation.
-                  </p>
-                </div>
-              </div>
-              <div class="accordion-item on-dark">
-                <button class="accordion-trig">
-                  <h4>Porcelain Veneers</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    Thin, custom-fitted shells that reshape and brighten your
-                    smile while looking completely natural.
-                  </p>
-                </div>
-              </div>
-              <div class="accordion-item on-dark">
-                <button class="accordion-trig">
-                  <h4>Invisalign</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    Straighten your teeth discreetly with clear, removable
-                    aligners custom-fit to your smile.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- data-parallax: the <picture> drifts inside the clipping
+                <!-- data-parallax: the <picture> drifts inside the clipping
                .photo; hover effects stay on the img (see CSS) -->
-          <div
-            class="photo reveal"
-            style="min-height: 300px"
-            data-parallax="0.12"
-          >
-            <picture>
-              <img
-                src="public/Services/cosmetic-service.jpg"
-                alt="Patient receiving a cosmetic whitening treatment"
-              />
-            </picture>
+                <div
+                  class="photo reveal"
+                  style="min-height: 300px"
+                  data-parallax="0.2"
+                >
+                  <picture>
+                    <img
+                      src="public/Services/cosmetic-service.jpg"
+                      alt="Patient receiving a cosmetic whitening treatment"
+                      style="height: 120vh"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
-      </section>
-      </div>
-      </div>
       </div>
 
       <!-- ============== LAYER 3: RESTORATIVE SERVICES ============== -->
       <!-- bottom pin: taller than the viewport. Its stepped seam (falling)
            overhangs cosmetic. -->
       <div class="layer" data-layer data-pin="bottom" data-depth>
-      <div class="layer-pin" style="--layer-z: 3">
-      <div class="layer-body">
-      <section
-        class="bg-navy seam-top seam-step-fall"
-        id="restorative"
-        style="--seam-fill: var(--navy-2)"
-      >
-        <div class="container split-7-5" style="gap: var(--sp-6)">
-          <div
-            class="photo reveal"
-            style="min-height: 460px; order: 1"
-            data-parallax="0.12"
-          >
-            <picture>
-              <img
-                src="public/Services/Restorative-services.jpeg"
-                alt="Restorative dental procedure in progress"
-              />
-            </picture>
-          </div>
-          <div style="order: 2" class="reveal">
-            <h2 class="display-2" style="color: var(--paper)">
-              Restorative Services
-            </h2>
-            <p
-              class="mt-3"
-              style="color: rgba(255, 255, 255, 0.75); max-width: 36ch"
+        <div class="layer-pin" style="--layer-z: 3">
+          <div class="layer-body">
+            <section
+              class="bg-navy seam-top seam-step-fall"
+              id="restorative"
+              style="--seam-fill: var(--navy-2)"
             >
-              Restore strength, function, and beauty to damaged or missing teeth
-              using durable, natural-looking materials.
-            </p>
+              <div
+                class="container split-7-5"
+                style="gap: var(--sp-6); align-items: center"
+              >
+                <div
+                  class="photo reveal"
+                  style="min-height: 460px; order: 1"
+                  data-parallax="0.12"
+                >
+                  <picture>
+                    <img
+                      src="public/Services/Restorative-services.jpeg"
+                      alt="Restorative dental procedure in progress"
+                      style="height: 120vh"
+                    />
+                  </picture>
+                </div>
+                <div style="order: 2" class="reveal">
+                  <h2 class="display-2" style="color: var(--paper)">
+                    Restorative Services
+                  </h2>
+                  <p
+                    class="mt-3"
+                    style="color: rgba(255, 255, 255, 0.75); max-width: 36ch"
+                  >
+                    Restore strength, function, and beauty to damaged or missing
+                    teeth using durable, natural-looking materials.
+                  </p>
 
-            <div class="accordion-group mt-5">
-              <div class="accordion-item on-dark is-open">
-                <button class="accordion-trig">
-                  <h4>Crowns (Caps)</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    Protect and restore damaged teeth with durable porcelain
-                    crowns that restore strength, function, and appearance.
-                    Ideal for fractured teeth, large fillings, or after root
-                    canals.
-                  </p>
+                  <div class="accordion-group mt-5">
+                    <div class="accordion-item on-dark is-open">
+                      <button class="accordion-trig">
+                        <h4>Crowns (Caps)</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          Protect and restore damaged teeth with durable
+                          porcelain crowns that restore strength, function, and
+                          appearance. Ideal for fractured teeth, large fillings,
+                          or after root canals.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion-item on-dark">
+                      <button class="accordion-trig">
+                        <h4>Bridges</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          Fixed replacements that span the gap left by one or
+                          more missing teeth, anchored to the teeth on either
+                          side.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion-item on-dark">
+                      <button class="accordion-trig">
+                        <h4>Inlays / Onlays</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          A conservative middle ground between a filling and a
+                          crown, custom-fit to repair moderate tooth damage.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion-item on-dark">
+                      <button class="accordion-trig">
+                        <h4>Implant Restorations</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          Replace missing teeth with titanium implant posts
+                          topped with natural-looking porcelain crowns, a
+                          permanent, functional solution that looks and feels
+                          like your natural teeth.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion-item on-dark">
+                      <button class="accordion-trig">
+                        <h4>Full Mouth Reconstructions</h4>
+                        <span class="plus"></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <p>
+                          A comprehensive rebuilding plan combining multiple
+                          restorative treatments for patients with extensive
+                          dental needs.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="accordion-item on-dark">
-                <button class="accordion-trig">
-                  <h4>Bridges</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    Fixed replacements that span the gap left by one or more
-                    missing teeth, anchored to the teeth on either side.
-                  </p>
-                </div>
-              </div>
-              <div class="accordion-item on-dark">
-                <button class="accordion-trig">
-                  <h4>Inlays / Onlays</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    A conservative middle ground between a filling and a crown,
-                    custom-fit to repair moderate tooth damage.
-                  </p>
-                </div>
-              </div>
-              <div class="accordion-item on-dark">
-                <button class="accordion-trig">
-                  <h4>Implant Restorations</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    Replace missing teeth with titanium implant posts topped
-                    with natural-looking porcelain crowns, a permanent,
-                    functional solution that looks and feels like your natural
-                    teeth.
-                  </p>
-                </div>
-              </div>
-              <div class="accordion-item on-dark">
-                <button class="accordion-trig">
-                  <h4>Full Mouth Reconstructions</h4>
-                  <span class="plus"></span>
-                </button>
-                <div class="accordion-panel">
-                  <p>
-                    A comprehensive rebuilding plan combining multiple
-                    restorative treatments for patients with extensive dental
-                    needs.
-                  </p>
-                </div>
-              </div>
-            </div>
+            </section>
+
+            <!-- ===================== PROTECTIVE & PREVENTATIVE ===================== -->
           </div>
         </div>
-      </section>
-
-      <!-- ===================== PROTECTIVE & PREVENTATIVE ===================== -->
-      </div>
-      </div>
       </div>
 
       <!-- ========= LAYER 4: PROTECTIVE & PREVENTATIVE SERVICES ========= -->
@@ -382,147 +399,155 @@
            shows through it as this layer slides over. .seam-room keeps
            the testimonials seam off the accordion. -->
       <div class="layer" data-layer data-pin="bottom" data-depth>
-      <div class="layer-pin" style="--layer-z: 4">
-      <div class="layer-body">
-      <section
-        class="bg-mist seam-room photo-step-host"
-        id="protective"
-        style="padding-top: 0"
-      >
-        <!-- .photo-step: stepped top edge cut into the photo (see CSS) -->
-        <div class="photo photo-step reveal" style="margin-bottom: var(--sp-6)">
-          <img
-            src="public/Services/Protective-services.png"
-            style="height: auto; object-fit: contain; transform: none"
-            width="3770"
-            height="2121"
-            alt="Dentist fitting a custom mouthguard"
-          />
-        </div>
-        <div class="container split-5-7" style="gap: var(--sp-6)">
-          <div class="reveal">
-            <h2 class="display-2">Protective &amp; Preventative Services</h2>
-            <p class="lede mt-3">
-              Safeguard your oral health with custom protective solutions and
-              early-detection screening technology.
-            </p>
+        <div class="layer-pin" style="--layer-z: 4">
+          <div class="layer-body">
+            <section
+              class="bg-mist seam-room photo-step-host"
+              id="protective"
+              style="padding-top: 0"
+            >
+              <!-- .photo-step: stepped top edge cut into the photo (see CSS) -->
+              <div
+                class="photo photo-step reveal"
+                style="margin-bottom: var(--sp-6)"
+              >
+                <img
+                  src="public/Services/Protective-services.png"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                    transform: none;
+                  "
+                  width="3770"
+                  height="2121"
+                  alt="Dentist fitting a custom mouthguard"
+                />
+              </div>
+              <div class="container split-5-7" style="gap: var(--sp-6)">
+                <div class="reveal">
+                  <h2 class="display-2">
+                    Protective &amp; Preventative Services
+                  </h2>
+                  <p class="lede mt-3">
+                    Safeguard your oral health with custom protective solutions
+                    and early-detection screening technology.
+                  </p>
+                </div>
+                <div class="accordion-group reveal">
+                  <div class="accordion-item">
+                    <button class="accordion-trig">
+                      <h4>Custom Athletic Mouthguards</h4>
+                      <span class="plus"></span>
+                    </button>
+                    <div class="accordion-panel">
+                      <p>
+                        Impression-fit guards built for comfort and protection
+                        during contact sports.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <button class="accordion-trig">
+                      <h4>Nightguards</h4>
+                      <span class="plus"></span>
+                    </button>
+                    <div class="accordion-panel">
+                      <p>
+                        Custom-molded guards that protect your teeth from
+                        nighttime grinding and clenching.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="accordion-item is-open">
+                    <button class="accordion-trig">
+                      <h4>VELscope&reg; Oral Cancer Screening</h4>
+                      <span class="plus"></span>
+                    </button>
+                    <div class="accordion-panel">
+                      <p>
+                        Advanced, painless screening technology to detect oral
+                        cancer and pre-cancerous tissue abnormalities early.
+                        Recommended for all patients during regular exams,
+                        regardless of risk factors.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-          <div class="accordion-group reveal">
-            <div class="accordion-item">
-              <button class="accordion-trig">
-                <h4>Custom Athletic Mouthguards</h4>
-                <span class="plus"></span>
-              </button>
-              <div class="accordion-panel">
-                <p>
-                  Impression-fit guards built for comfort and protection during
-                  contact sports.
-                </p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <button class="accordion-trig">
-                <h4>Nightguards</h4>
-                <span class="plus"></span>
-              </button>
-              <div class="accordion-panel">
-                <p>
-                  Custom-molded guards that protect your teeth from nighttime
-                  grinding and clenching.
-                </p>
-              </div>
-            </div>
-            <div class="accordion-item is-open">
-              <button class="accordion-trig">
-                <h4>VELscope&reg; Oral Cancer Screening</h4>
-                <span class="plus"></span>
-              </button>
-              <div class="accordion-panel">
-                <p>
-                  Advanced, painless screening technology to detect oral cancer
-                  and pre-cancerous tissue abnormalities early. Recommended for
-                  all patients during regular exams, regardless of risk factors.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-      </div>
-      </div>
       </div>
 
       <!-- ================= LAYER 5: TESTIMONIALS ================= -->
-      <!-- top pin: fits the viewport. Its peak seam overhangs protective. -->
-      <div class="layer" data-layer data-pin="top" data-depth>
-      <div class="layer-pin" style="--layer-z: 5">
-      <div class="layer-body">
-      <section
-        class="bg-paper seam-top seam-peak"
-        id="testimonials"
-        style="
-          padding-block: var(--sp-6);
-          --seam-fill: var(--paper);
-          --seam-at: 55%;
-        "
-      >
-        <div class="container">
-          <h2 class="display-2 reveal">
-            We love our patients, and it seems the feeling is mutual.
-          </h2>
+      <!-- no pin: the last layer; the footer follows it in flow. Its peak seam overhangs protective. -->
+      <div class="layer" data-layer data-pin="none">
+        <div class="layer-pin" style="--layer-z: 5">
+          <div class="layer-body">
+            <section
+              class="bg-paper seam-top seam-peak"
+              id="testimonials"
+              style="
+                padding-block: var(--sp-6);
+                --seam-fill: var(--paper);
+                --seam-at: 55%;
+              "
+            >
+              <div class="container">
+                <h2 class="display-2 reveal">
+                  We love our patients, and it seems the feeling is mutual.
+                </h2>
 
-          <div
-            class="hairline-block mt-4 relative reveal"
-            style="
-              border-left: 3px solid var(--sky-deep);
-              padding: var(--sp-4) var(--sp-5);
-            "
-          >
-            <div class="quote-track">
-              <div class="quote-slide">
-                <p class="quote-big">
-                  "Thank you so much for giving our son his smile back! We truly
-                  appreciate your caring and compassionate nature, it made a
-                  very difficult problem so much easier for us."
-                </p>
-                <p class="quote-attr">S.L., Miami</p>
+                <div
+                  class="hairline-block mt-4 relative reveal"
+                  style="
+                    border-left: 3px solid var(--sky-deep);
+                    padding: var(--sp-4) var(--sp-5);
+                  "
+                >
+                  <div class="quote-track">
+                    <div class="quote-slide">
+                      <p class="quote-big">
+                        "Thank you so much for giving our son his smile back! We
+                        truly appreciate your caring and compassionate nature,
+                        it made a very difficult problem so much easier for us."
+                      </p>
+                      <p class="quote-attr">S.L., Miami</p>
+                    </div>
+                    <div class="quote-slide">
+                      <p class="quote-big">
+                        "You are a wonderful dentist and so professional. I
+                        appreciate your dedication to perfection and recommend
+                        you any chance I get."
+                      </p>
+                      <p class="quote-attr">C.R., Miami</p>
+                    </div>
+                  </div>
+                  <div class="btn-row mt-4">
+                    <button
+                      class="btn btn-outline quote-prev"
+                      aria-label="Previous testimonial"
+                    >
+                      ←
+                    </button>
+                    <button
+                      class="btn btn-outline quote-next"
+                      aria-label="Next testimonial"
+                    >
+                      →
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="quote-slide">
-                <p class="quote-big">
-                  "You are a wonderful dentist and so professional. I appreciate
-                  your dedication to perfection and recommend you any chance I
-                  get."
-                </p>
-                <p class="quote-attr">C.R., Miami</p>
-              </div>
-            </div>
-            <div class="btn-row mt-4">
-              <button
-                class="btn btn-outline quote-prev"
-                aria-label="Previous testimonial"
-              >
-                ←
-              </button>
-              <button
-                class="btn btn-outline quote-next"
-                aria-label="Next testimonial"
-              >
-                →
-              </button>
-            </div>
+            </section>
           </div>
         </div>
-      </section>
-      </div>
-      </div>
       </div>
     </main>
 
-    <!-- ===================== LAYER 6: FOOTER ===================== -->
-    <!-- no pin: the last layer; slides over the pinned testimonials -->
-    <div class="layer" data-layer data-pin="none">
-    <div class="layer-pin" style="--layer-z: 6">
-    <div class="layer-body">
+    <!-- footer: not a layer. It follows </main> in flow, attached
+         to the bottom of the last layer, and scrolls up with it. -->
     <footer class="site-footer" id="footer">
       <div class="container footer-grid">
         <div>
@@ -575,9 +600,5 @@
         <span>6280 Sunset Drive, Suite 404, South Miami, FL 33143</span>
       </div>
     </footer>
-    </div>
-    </div>
-    </div>
-
   </body>
 </html>

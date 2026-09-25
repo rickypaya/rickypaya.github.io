@@ -163,10 +163,10 @@
       </div>
 
       <!-- ============ LAYER 2: CONTACT - fixed-contrast, on dark solid ============ -->
-      <!-- bottom pin: taller than the viewport. Its wedge seam overhangs
+      <!-- no pin: the last layer; the footer follows it in flow. Its wedge seam overhangs
            the hero's bottom padding. .seam-clip replaces the old
            overflow: hidden without cutting off the seam. -->
-      <div class="layer" data-layer data-pin="bottom" data-depth>
+      <div class="layer" data-layer data-pin="none">
         <div class="layer-pin" style="--layer-z: 2">
           <div class="layer-body">
             <section
@@ -307,69 +307,63 @@
       </div>
     </main>
 
-    <!-- ===================== LAYER 3: FOOTER ===================== -->
-    <!-- no pin: the last layer; slides over the pinned contact section -->
-    <div class="layer" data-layer data-pin="none">
-      <div class="layer-pin" style="--layer-z: 3">
-        <div class="layer-body">
-          <footer class="site-footer" id="footer">
-            <div class="container footer-grid">
-              <div>
-                <a href="index.html" class="footer-logo"
-                  ><img
-                    src="public/brand/Sunset-logo.png"
-                    alt="Sunset Dentistry"
-                /></a>
-                <p class="footer-about">
-                  Trusted smiles for 30+ years. <br />Proud dental partner of UM
-                  &amp; FIU.
-                </p>
-              </div>
-              <div>
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="financing.html">Financing Options</a></li>
-                  <li><a href="schedule.html">Schedule Visit</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4>Location</h4>
-                <p class="footer-about">
-                  Sunset Professional Building<br />6280 Sunset Drive, Suite
-                  404<br />South Miami, FL 33143<br />(305) 661-7810
-                </p>
-              </div>
-              <div>
-                <h4>Hours</h4>
-                <div class="hours-row">
-                  <span>Monday</span><span>8:00 AM - 4:30 PM</span>
-                </div>
-                <div class="hours-row">
-                  <span>Tuesday</span><span>8:00 AM - 4:30 PM</span>
-                </div>
-                <div class="hours-row">
-                  <span>Wednesday</span><span>8:00 AM - 4:30 PM</span>
-                </div>
-                <div class="hours-row">
-                  <span>Thursday</span><span>8:00 AM - 4:30 PM</span>
-                </div>
-                <div class="hours-row">
-                  <span>Friday</span><span>8:00 AM - 12:00 PM</span>
-                </div>
-                <div class="hours-row">
-                  <span>Sat / Sun</span><span>Closed</span>
-                </div>
-              </div>
-            </div>
-            <div class="container footer-bottom">
-              <span>© 2026 Sunset Dentistry. All rights reserved.</span>
-              <span>6280 Sunset Drive, Suite 404, South Miami, FL 33143</span>
-            </div>
-          </footer>
+    <!-- footer: not a layer. It follows </main> in flow, attached
+         to the bottom of the last layer, and scrolls up with it. -->
+    <footer class="site-footer" id="footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo"
+            ><img
+              src="public/brand/Sunset-logo.png"
+              alt="Sunset Dentistry"
+          /></a>
+          <p class="footer-about">
+            Trusted smiles for 30+ years. <br />Proud dental partner of UM
+            &amp; FIU.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="financing.html">Financing Options</a></li>
+            <li><a href="schedule.html">Schedule Visit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Location</h4>
+          <p class="footer-about">
+            Sunset Professional Building<br />6280 Sunset Drive, Suite
+            404<br />South Miami, FL 33143<br />(305) 661-7810
+          </p>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <div class="hours-row">
+            <span>Monday</span><span>8:00 AM - 4:30 PM</span>
+          </div>
+          <div class="hours-row">
+            <span>Tuesday</span><span>8:00 AM - 4:30 PM</span>
+          </div>
+          <div class="hours-row">
+            <span>Wednesday</span><span>8:00 AM - 4:30 PM</span>
+          </div>
+          <div class="hours-row">
+            <span>Thursday</span><span>8:00 AM - 4:30 PM</span>
+          </div>
+          <div class="hours-row">
+            <span>Friday</span><span>8:00 AM - 12:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span>Sat / Sun</span><span>Closed</span>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Sunset Dentistry. All rights reserved.</span>
+        <span>6280 Sunset Drive, Suite 404, South Miami, FL 33143</span>
+      </div>
+    </footer>
   </body>
 </html>
