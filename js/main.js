@@ -202,10 +202,13 @@ document.addEventListener("DOMContentLoaded", () => {
           countObserver.unobserve(el);
           return;
         }
-        const start = performance.now();
+        // data-count-delay (ms): hold the count until an intro
+        // animation has brought the number into view
+        const delay = parseInt(el.dataset.countDelay, 10) || 0;
+        const start = performance.now() + delay;
         const dur = 1400;
         function tick(now) {
-          const p = Math.min((now - start) / dur, 1);
+          const p = Math.min(Math.max(now - start, 0) / dur, 1);
           const eased = 1 - Math.pow(1 - p, 3);
           el.textContent = Math.round(eased * target) + suffix;
           if (p < 1) requestAnimationFrame(tick);

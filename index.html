@@ -171,7 +171,7 @@
             <section class="bg-paper relative hero-frame" id="hero">
               <div class="hero-split">
                 <!-- data-parallax: inner photo parallax strength (see CSS) -->
-                <div class="hero-photo" data-parallax="0.12">
+                <div class="hero-photo intro intro-photo" data-parallax="0.12">
                   <picture>
                     <source
                       srcset="public/Home/Stock-smile.webp"
@@ -194,16 +194,16 @@
                   style="max-width: none"
                 >
                   <div class="hero-text-inner">
-                    <h1 class="display-1 reveal">
+                    <h1 class="display-1 intro" style="--intro-delay: 0.5s">
                       Beautiful<br />smiles,<br />daily.
                     </h1>
-                    <p class="lede mt-4 reveal">
+                    <p class="lede mt-4 intro" style="--intro-delay: 0.9s">
                       Discover personalized treatment, the latest in dental
                       technology, and a team that truly listens. Your
                       healthiest, brightest smile starts here. Book your visit
                       today.
                     </p>
-                    <div class="btn-row mt-5 reveal">
+                    <div class="btn-row mt-5 intro" style="--intro-delay: 1.3s">
                       <a href="schedule.html" class="btn btn-sky"
                         >Schedule Appointment
                         <svg
@@ -234,9 +234,13 @@
         <div class="layer-pin" style="--layer-z: 2">
           <div class="layer-body">
             <section
-              class="bg-mist seam-top seam-peak"
+              class="bg-mist seam-top seam-peak intro"
               id="credentials"
-              style="padding-block: 0; --seam-fill: var(--mist)"
+              style="
+                padding-block: 0;
+                --seam-fill: var(--mist);
+                --intro-delay: 1.9s;
+              "
             >
               <div class="container credential-strip">
                 <ul>
@@ -248,7 +252,11 @@
                   <li>University of Miami</li>
                   <li>FIU</li>
                   <li>
-                    <span class="stat-count" data-count="30" data-suffix="+"
+                    <span
+                      class="stat-count"
+                      data-count="30"
+                      data-suffix="+"
+                      data-count-delay="1900"
                       >0</span
                     >
                     Years of Experience
