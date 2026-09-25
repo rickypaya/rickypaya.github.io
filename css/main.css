@@ -658,8 +658,8 @@ section {
 }
 
 /* ---------- hero intro ----------
-   One-shot load sequence, 3s end to end: photo, title, subtitle,
-   buttons, then the credentials strip, each keyed off --intro-delay
+   One-shot load sequence, ~3.7s end to end: nav, photo, title,
+   subtitle, buttons, then the credentials strip, each keyed off --intro-delay
    (set inline in the markup). Only the photo's container animates;
    the parallax script owns the <picture> inside it, so no element
    gets transforms from two systems. fill-mode both holds the hidden
@@ -692,8 +692,60 @@ section {
   animation-name: intro-photo;
   animation-duration: 1.4s;
 }
+
+/* Nav leads the sequence: the bar drops in from above the viewport,
+   then the logo and links settle in turn, finishing as the hero photo
+   starts at 0.7s. Link stagger is desktop-only: the mobile menu is
+   display:none until opened, and would replay the animation then. */
+@keyframes intro-drop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes intro-settle {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.intro-nav {
+  animation: intro-drop 0.7s var(--ease) both;
+}
+.intro-nav .logo,
+.intro-nav .nav-toggle {
+  animation: intro-settle 0.6s var(--ease) 0.25s both;
+}
+@media (min-width: 901px) {
+  .intro-nav .nav-links > * {
+    animation: intro-settle 0.6s var(--ease) both;
+  }
+  .intro-nav .nav-links > :nth-child(1) {
+    animation-delay: 0.35s;
+  }
+  .intro-nav .nav-links > :nth-child(2) {
+    animation-delay: 0.43s;
+  }
+  .intro-nav .nav-links > :nth-child(3) {
+    animation-delay: 0.51s;
+  }
+  .intro-nav .nav-links > :nth-child(4) {
+    animation-delay: 0.59s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .intro {
+  .intro,
+  .intro-nav,
+  .intro-nav .logo,
+  .intro-nav .nav-toggle,
+  .intro-nav .nav-links > * {
     animation: none;
   }
 }
